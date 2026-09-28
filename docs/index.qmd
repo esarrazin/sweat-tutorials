@@ -7,7 +7,7 @@ date: "2026-10-07"
 
 # Objective
 
-Gain an overview of the approaches and tools developed by the TRISHNA Ecosystem Stress group for estimating water stress in ecosystems.
+Gain an overview of the approaches and tools developed by the TRISHNA Ecosystem Stress group for estimating evapotranspiration and water stress in ecosystems.
 
 # Tutorial content
 
@@ -22,7 +22,7 @@ Gain an overview of the approaches and tools developed by the TRISHNA Ecosystem 
 :::
 :::
 
-2. How to compute evapotranspiration in TRISHNA?
+2. How is evapotranspiration estimated in TRISHNA?
 
 ::: {.content-hidden when-format="revealjs"}
 ::: {.content-hidden when-format="beamer"}

@@ -11,9 +11,10 @@ _site/
 _slides/
 _beamer/
 _book/
+/.quarto/
 
 # Old data
 _archives/
 
-/.quarto/
-**/*.quarto_ipynb
+# Notebooks
+.ipynb_checkpoints/

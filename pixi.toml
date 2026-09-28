@@ -2,10 +2,21 @@
 authors = ["Emmanuelle Sarrazin <emmanuelle.sarrazin@cnes.fr>"]
 channels = ["conda-forge"]
 name = "sweat_tutorials"
-platforms = ["linux-64"]
+platforms = ["linux-64","win-64", "osx-64", "osx-arm64"]
 version = "0.0.1"
 
 [tasks]
 
 [dependencies]
 quarto = ">=1.9.38,<2"
+python = "3.12.*"
+pip = ">=24.3.1,<25"
+gdal = ">=3.10.0,<4"
+hdf4 = ">=4.2.15,<5"
+hdf5 = ">=1.14.4,<2"
+netcdf4 = ">=1.7.2,<2"
+h5netcdf = ">=1.4.1,<2"
+numpy = ">=2.2,<2.3"
+
+[pypi-dependencies]
+sweat = { git = "https://github.com/CNES/sweat", branch = "main", extras=["notebook","docs"]}
