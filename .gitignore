@@ -1,0 +1,19 @@
+# pixi environments
+.pixi/*
+!.pixi/config.toml
+pixi.lock
+
+# Quarto
+.quarto/
+
+# Quarto outputs
+_site/
+_slides/
+_beamer/
+_book/
+
+# Old data
+_archives/
+
+/.quarto/
+**/*.quarto_ipynb

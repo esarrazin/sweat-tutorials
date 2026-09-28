@@ -1,0 +1,11 @@
+[workspace]
+authors = ["Emmanuelle Sarrazin <emmanuelle.sarrazin@cnes.fr>"]
+channels = ["conda-forge"]
+name = "sweat_tutorials"
+platforms = ["linux-64"]
+version = "0.0.1"
+
+[tasks]
+
+[dependencies]
+quarto = ">=1.9.38,<2"

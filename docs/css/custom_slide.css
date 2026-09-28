@@ -1,0 +1,87 @@
+/* Slide configuration */
+.reveal .slides section {
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center !important;
+  align-items: flex-start;
+  text-align: left;
+}
+
+
+.reveal .slide-logo {
+  width: 80px !important;
+  height: auto !important;
+  max-height: none !important;
+
+  bottom: 20px !important;
+  right: 30px !important;
+}
+
+/* Keep Quarto's columns layout */
+.reveal .columns {
+  display: flex;
+  align-items: center;
+}
+
+/* Vertically center the contents of the columns */
+.reveal .columns > .column {
+  align-self: center;
+}
+
+/* Keep text left-aligned */
+.reveal .columns > .column:first-child {
+  text-align: left;
+}
+
+/* Logos on the Quarto Reveal.js title slide */
+.reveal .title-logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+
+  margin-top: 50px;
+}
+
+.reveal .title-logos img {
+  height: 100px;
+  width: auto;
+  object-fit: contain;
+}
+
+.reveal .footer {
+  font-size: 14px;
+  color: #777;
+  text-align: center;
+}
+
+.text-small {
+  font-size: 0.8em;
+}
+
+.text-large {
+  font-size: 1.25em;
+}
+
+.text-tiny {
+  font-size: 0.7em;
+}
+
+/* Main slide text */
+.reveal {
+  font-size: 26px;
+}
+
+/* Headings */
+.reveal h1 {
+  font-size: 2em;
+}
+
+.reveal h2 {
+  font-size: 1.5em;
+}
+
+/* Code */
+.reveal pre {
+  font-size: 0.7em;
+}

@@ -1,0 +1,98 @@
+---
+author: "Emmanuelle Sarrazin"
+title: "SWEAT tutorials"
+subtitle: "How to compute evapotranspiration?"
+date: "2026-10-07"
+---
+
+# Objective
+
+Gain an overview of the approaches and tools developed by the TRISHNA Ecosystem Stress group for estimating water stress in ecosystems.
+
+# Tutorial content
+
+1. What is the TRISHNA mission?
+
+::: {.content-hidden when-format="revealjs"}
+
+- Description of the mission characteristics and instruments.
+- Description of the products distributed, particularly products for estimating biophysical variables.
+
+:::
+
+2. How to compute evapotranspiration in TRISHNA?
+
+::: {.content-hidden when-format="revealjs,beamer"}
+
+- Introduction to evapotranspiration
+- Description of the evapotranspiration algorithms selected for the TRISHNA mission:
+  
+  - STIC (Surface Temperature Initiated Closure)
+  - EVASPA (EVapotranspiration Assessment from SPAce)
+  
+- Presentation of their advantages and limitations.
+- Presentation of SWEAT (Spatial Waterstress Evapotranspiration Assessment for TRISHNA)
+- Exploring these algorithms through notebooks to understand how they work and how to interpret their results.
+
+:::
+
+3. From daily product to time series 
+
+::: {.content-hidden when-format="revealjs,beamer"}
+
+- Description of the calculation of evapotranspiration time series.
+- Presentation of the algorithm used for interpolation and extrapolation, using notebooks.
+
+:::
+
+# Tutorial instruction
+
+## Prerequisites
+
+Software to install
+
+- git
+- pixi
+
+## Installation
+
+### Clone this repository
+
+``` console
+git clone https://github.com/esarrazin/sweat-tutorials.git
+```
+
+### Install
+
+1. Access to the directory
+```console
+cd sweat-tutorials
+```
+
+2. Install the environment
+``` console
+pixi install
+```
+
+## Download test data
+
+- TODO
+
+## Run jupyter notebook
+
+1. Access to the directory
+```console
+cd sweat-tutorials
+```
+
+2. Activate the environment
+``` console
+pixi shell
+```
+
+3. Launch jupyter lab
+``` console
+jupyter lab
+```
+
+
