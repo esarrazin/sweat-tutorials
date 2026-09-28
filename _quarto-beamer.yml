@@ -1,0 +1,10 @@
+project:
+  output-dir: _beamer
+  render: 
+    - docs/
+
+format:
+  beamer:
+    slide-level: 2
+    aspectratio: 43
+    theme: metropolis

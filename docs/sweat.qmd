@@ -1,0 +1,208 @@
+---
+author: "Emmanuelle Sarrazin"
+title: "SWEAT"
+subtitle: "Spatial Water stress Evapotranspiration Assessment for TRISHNA"
+date: "2026-10-07"
+bibliography: references.bib
+---
+
+## Overview
+
+SWEAT contains several algorithms used in TRISHNA mission to compute evapotranspiration:
+
+- **EVASPA** EVApotranspiration from SPAce
+- **STIC** Surface Temperature Initiated Closure
+- **ET time series**
+
+## Pre-requisites
+
+- **git**
+- **pixi** Instructions for installation in <https://pixi.sh/>
+
+## Installation
+
+### Clone the repository
+
+``` console
+git clone https://src.koda.cnrs.fr/trishna/sweat.git
+```
+
+### Install
+
+``` console
+cd sweat/
+pixi install
+```
+
+### Install notebooks dependencies
+
+``` console
+pixi shell
+pip install .[notebook]
+```
+
+## Update
+
+``` console
+cd et-dataset
+git pull
+pixi shell
+pip install .[notebook]
+```
+
+## Developer installation
+
+### Install in a developer mode (dev tools, notebooks, docs)
+
+``` console
+pixi install -e dev
+```
+
+### Update in developer mode
+
+``` console
+cd et-dataset
+git pull
+pixi shell -e dev
+```
+
+## Usage: Command line
+
+### Activate the environment
+
+``` console
+pixi shell [-e dev]
+```
+
+### Command line
+
+4 main commands available
+
+- **evaspa**
+- **stic**
+- **timeseries**
+- **window_timeseries** (timeseries over a period)
+
+## Usage: Notebooks
+
+### Activate the environment
+
+``` console
+pixi shell
+jupyter-lab
+```
+
+### Notebooks
+
+- Main notebooks located in the root of notebooks directory
+- More detailed notebooks in subdirectories of notebooks directory
+
+## Usage
+
+### Remark on inputs
+
+- SWEAT uses the band descriptions during input reading to determine which variable each band corresponds to.
+- It is essential to correctly write the band name in the description field and to ensure that the band names match the expected format.
+
+## Documentation generation
+
+### Installation
+
+``` console
+pixi shell
+pip install -e .[docs]
+```
+
+### Build the documentation
+
+``` console
+mkdocs build
+```
+
+### Start the live-reloading docs server
+
+``` console
+mkdocs serve
+```
+
+## Documentation generation
+
+Open <http://localhost:8000/>
+
+\begin{figure}
+\centering
+\includegraphics[width=0.8\linewidth]{figs/documentation_sweat.png}
+\end{figure}
+
+## Software design
+
+### File tree structure
+
+\footnotesize
+
+``` bash
+|-- CONTRIBUTING.md
+|-- docs
+|-- hooks
+|-- Makefile
+|-- mkdocs.yml
+|-- notebooks
+|-- pyproject.toml
+|-- README.md
+|-- ruff.toml
+|-- src
+|-- tests
+`-- troubleshooting.md
+```
+
+\normalsize
+
+## Software design
+
+### Module list
+
+\footnotesize
+
+| Module         | Description                                 |
+|----------------|---------------------------------------------|
+| `api.py`       | High-level API                              |
+| `cli`          | Module for CLI management                   |
+| `common`       | Module containing common submodules         |
+| `debugging.py` | Module for debugging management             |
+| `evaspa`       | Module containing EVASPA submodules         |
+| `logging.py`   | Module for logging                          |
+| `misc`         | Module containing auxiliary data submodules |
+| `stic`         | Module containing STIC submodules           |
+| `timeseries`   | Module containing timeseries submodules     |
+
+\normalsize
+
+## Core concepts
+
+### Configuration Management
+
+- Stored in *JSON* format
+
+- Managed via `Pydantic`
+
+  - validate JSON configuration file and configuration dictionary:
+    - Verify that the required parameters are present.
+    - Verify that the parameters conform to the expected format.
+    - Verify that the parameters conform to the expected values.
+  - Handle default parameter values, so the code can be run with very few parameters specified
+
+$\Rightarrow$ **Objective** To perform an early configuration check to avoid a later error during execution.
+
+## Core concepts
+
+### Configuration Management
+
+- The complete configuration used for each SWEAT run is written to the *config.json* file located in the output directory
+- This file can then be used for a new execution of the code.
+
+## Core concepts
+
+### High-level API
+
+- Use `xarray.Dataset` for data
+- Use Python dictionaries for configuration

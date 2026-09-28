@@ -1,0 +1,52 @@
+project:
+  type: website
+  output-dir: _site
+  render: 
+    - docs/
+
+website:
+  title: "SWEAT tutorials"
+  navbar:
+    left:
+      - text: "Home"
+        file: docs/index.qmd
+      - text: "TRISHNA mission"
+        file: docs/trishna_mission.qmd
+      - text: "ET models"
+        file: docs/et_models.qmd
+      - text: "ET time series"
+        file: docs/et_timeseries.qmd
+      - text: "References"
+        file: docs/references.qmd
+
+  sidebar:
+    - title: "TRISHNA mission"
+      contents:
+        - docs/trishna_mission.qmd
+        # navigation items
+
+    - title: "ET models"
+      style: "docked"
+      background: light
+      contents:
+        - docs/et_models.qmd
+        - docs/data_preparation.qmd
+        - docs/sweat.qmd
+        - docs/stic.qmd
+        - docs/evaspa.qmd
+
+    - title: "ET time series"
+      contents:
+        - docs/et_timeseries.qmd
+        # navigation items
+
+    - title: "References"
+      contents:
+        - docs/references.qmd
+        # navigation items
+
+format:
+  html:
+    theme: cosmo
+    toc: true
+    toc-depth: 1

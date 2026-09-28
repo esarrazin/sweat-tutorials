@@ -1,0 +1,250 @@
+---
+author: "Emmanuelle Sarrazin"
+title: "Estimation of evapotranspiration in TRISHNA"
+subtitle: "How to compute evapotranspiration?"
+date: "2026-10-07"
+---
+
+# ET Timeseries
+
+## Overview
+
+* Algorithm for calculating an evapotranspiration time series from L2B level products and auxiliary data
+
+## Algorithm
+
+### Evolution of a pixel's ET time series
+
+\begin{figure}
+\centering
+\includegraphics[width=0.8\linewidth]{figs/update_window.png}
+\end{figure}
+
+## Algorithm
+
+### Update strategy
+
+* interpolation between two existing acquisition values
+* extrapolation beyond the last previous available acquisition value
+* backward extrapolation from the next available acquisition value
+
+## Algorithm
+
+### Update timeseries
+
+\begin{figure}
+\centering
+\includegraphics[width=0.8\linewidth]{figs/update_ts.png}
+\end{figure}
+
+## Algorithm
+
+* V0: Implementation of interpolation/extrapolation based only a solar daily radiation 
+
+## Algorithm step
+
+\begin{figure}
+\centering
+\includegraphics[width=0.8\linewidth]{figs/timeseries_steps.png}
+\end{figure}
+
+## Usage
+
+### timeseries: Update ET timeseries over a window
+
+```bash
+Usage: timeseries [OPTIONS] INPUT_FILE
+
+Options:
+  --verbose / --no-verbose  Debug logging mode
+  --version                 Show the version and exit.
+  -h, --help                Show this message and exit.
+```
+
+## Usage
+
+### timeseries: Update ET timeseries over a window
+
+\begin{figure}
+\centering
+\includegraphics[width=\linewidth]{figs/timeseries_usage.png}
+\end{figure}
+
+## Usage
+
+### window_timeseries: Generate ET timeseries over a time period
+
+```bash
+Usage: window-timeseries [OPTIONS] INPUT_FILE
+
+Options:
+  --verbose / --no-verbose  Debug logging mode
+  --version                 Show the version and exit.
+  -h, --help                Show this message and exit.
+```
+
+## Usage
+
+### window_timeseries: Generate ET timeseries over a time period
+
+\begin{figure}
+\centering
+\includegraphics[width=\linewidth]{figs/window_timeseries_usage.png}
+\end{figure}
+
+## Usage
+
+### Notebook
+
+### Update ET timeseries over a window
+
+* Main notebook **notebooks/run_timeseries.ipynb**
+
+### Generate ET timeseries over a time period
+
+* Main notebook **notebooks/run_window_timeseries.ipynb**
+
+## Usage
+
+### Other notebooks
+
+* For validation: **notebooks/timeseries/validation_timeseries.ipynb** 
+* For developing a new method for interpolation/extrapolation: **notebooks/timeseries/validation_new_model.ipynb** 
+
+## Configuration
+
+### Input configuration
+
+* Detailed in **docs/timeseries/usage.md** and **docs/timeseries/configuration.md**
+
+## Exercices
+
+* Test **tutorial_validation_timeseries.ipynb** in tutorial data
+
+## Software design
+
+### Module list
+
+| Module | Description |
+|--------|-------------|
+| `abstract_updater.py` | Module for abstract time series update |
+| `config.py` | Module for time series configuration management |
+| `constant.py` | Module for constants used for time series |
+| `io_handler.py` | Module for managing IO for time series |
+| `linear_updater.py` | Module for linear interpolation/extrapolation |
+| `stack_handler.py` | Module for stacking data |
+| `status_handler.py` | Module for managing pixel status |
+| `timeseries_handler.py` | Module for managing sliding windows for time series |
+| `updater_handler.py` | Module for time series update |
+
+## Core concepts
+
+\begin{figure}
+\centering
+\includegraphics[width=0.6\linewidth]{figs/updater_class.png}
+\end{figure}
+
+## Future work
+
+* Pursue the validation work on V0
+  $\Rightarrow$ Work on how to ensure continuity between extrapolation and backward extrapolation during a long period without acquisition
+* Refactoring to improve performance is planned
+* Add the equations for the V1 interpolation/extrapolation methods taking rainfall into account
+
+
+# L3 data
+
+## Input list
+
+* Daily ET timeseries (used to simulation acquisition and also as reference)
+* Daily radiation timeseries
+* Other meteorological variables timeseries
+
+## Input source: Where the data is downloaded?
+
+* [Climate Data Store](https://cds.climate.copernicus.eu/)
+* [LSA SAF Data](https://datalsasaf.lsasvcs.ipma.pt/)
+
+## Input source: What data is downloaded?
+
+\begin{figure}
+\centering
+\includegraphics[width=0.5\linewidth]{images/input_source_l3.png}
+\end{figure}
+
+## Configuration
+
+### Climate Data Store
+
+* Create an account
+* Generate a token and store the token, [see instructions](https://cds.climate.copernicus.eu/how-to-api)
+
+### LSA SAF Data
+
+* Create an account
+* Set environment variables `LSASAF_USER` and `LSASAF_PASSWORD`
+
+## Prepare daily radiation timeseries
+
+\begin{figure}
+\centering
+\includegraphics[width=0.8\linewidth]{images/prepare_daily_radiation_timeseries.png}
+\end{figure}
+
+## Prepare daily ET timeseries
+
+\begin{figure}
+\centering
+\includegraphics[width=0.8\linewidth]{images/prepare_daily_et_timeseries.png}
+\end{figure}
+
+
+
+## Usage: Prepare timeseries script
+
+### Command line: scripts/prepare_timeseries.py
+
+\footnotesize
+```bash
+usage: prepare_timeseries.py [-h] -s START_DATE -e END_DATE -r ROI [-o OUTPUT]
+
+options:
+  -h, --help            show this help message and exit
+  -s START_DATE, --start_date START_DATE
+                        start date (YY-MM-DD)
+  -e END_DATE, --end_date END_DATE
+                        end date (YY-MM-DD)
+  -r ROI, --roi ROI     Path of the region of interest in Shapefile format
+  -o OUTPUT, --output OUTPUT
+                        Output directory
+```
+\normalsize
+
+## Usage: Prepare timeseries script
+
+### Notebooks
+
+* `notebooks/prepare_timeseries.ipynb`
+
+## Usage: Prepare timeseries script
+
+### Output directory
+
+```bash
+|-- ERA5_data
+    `-- download_era5land_YYYY-MM-DD.zip
+|-- MSG_data
+|   |-- MSG_YYYY-MM-DD
+|   |   `-- NETCDF4_LSASAF_MSG_DIDSSF_MSG-Disk_YYYYMMDD0000.nc
+`-- timeseries
+    |-- daily_radiation
+    |   `-- radiation_YYYYMMDD.tif
+    |-- et
+    |   `-- et_single_date_YYYYMMDD.tif
+     `-- extra
+        `-- extra_YYYYMMDD.tif
+```
+
+## Exercise
+
+* Test **notebooks/prepare_timeseries_tutorial.ipynb** in tutorial data
