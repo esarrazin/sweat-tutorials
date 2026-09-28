@@ -14,15 +14,18 @@ Gain an overview of the approaches and tools developed by the TRISHNA Ecosystem 
 1. What is the TRISHNA mission?
 
 ::: {.content-hidden when-format="revealjs"}
+::: {.content-hidden when-format="beamer"}
 
 - Description of the mission characteristics and instruments.
 - Description of the products distributed, particularly products for estimating biophysical variables.
 
 :::
+:::
 
 2. How to compute evapotranspiration in TRISHNA?
 
-::: {.content-hidden when-format="revealjs,beamer"}
+::: {.content-hidden when-format="revealjs"}
+::: {.content-hidden when-format="beamer"}
 
 - Introduction to evapotranspiration
 - Description of the evapotranspiration algorithms selected for the TRISHNA mission:
@@ -35,14 +38,17 @@ Gain an overview of the approaches and tools developed by the TRISHNA Ecosystem 
 - Exploring these algorithms through notebooks to understand how they work and how to interpret their results.
 
 :::
+:::
 
 3. From daily product to time series 
 
-::: {.content-hidden when-format="revealjs,beamer"}
+::: {.content-hidden when-format="revealjs"}
+::: {.content-hidden when-format="beamer"}
 
 - Description of the calculation of evapotranspiration time series.
 - Presentation of the algorithm used for interpolation and extrapolation, using notebooks.
 
+:::
 :::
 
 # Tutorial instruction
@@ -58,19 +64,19 @@ Software to install
 
 ### Clone this repository
 
-``` console
+```bash
 git clone https://github.com/esarrazin/sweat-tutorials.git
 ```
 
 ### Install
 
 1. Access to the directory
-```console
+```bash
 cd sweat-tutorials
 ```
 
 2. Install the environment
-``` console
+```bash
 pixi install
 ```
 
@@ -81,17 +87,17 @@ pixi install
 ## Run jupyter notebook
 
 1. Access to the directory
-```console
+```bash
 cd sweat-tutorials
 ```
 
 2. Activate the environment
-``` console
+```bash
 pixi shell
 ```
 
 3. Launch jupyter lab
-``` console
+```bash
 jupyter lab
 ```
 

@@ -11,5 +11,6 @@ format:
     logo: images/trishna_logo.png
     css: css/custom_slide.css
     footer: "SWEAT tutorials"
+    code-line-numbers: false
     template-partials:
       - templates/title-slide.html
