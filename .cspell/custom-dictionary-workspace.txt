@@ -1,0 +1,72 @@
+# Custom Dictionary Words
+
+# Acronyms
+centre
+etudes
+evaspa
+national
+stic
+trishna
+cesbio
+noaa
+sebi
+svat
+ecostress
+revealjs
+
+# Journals
+Hydrometeorology
+Appl
+Climatol
+Geocarto
+
+
+# Nouns
+Choudhury
+Friedl
+Kustas
+Tetens
+Mallick
+Santanello
+Daughtry
+Oevelen
+Idso
+Reginato
+Alduchov
+Eskridge
+Magnus
+Anatoly
+Gitelson
+Yoram
+Rundquist
+Louhaichi
+Mounir
+Borman
+Trezza
+Masahiro
+Tasumi
+Toussaint
+Goudriaan
+Roerink
+Bastiaanssen
+Menenti
+Kpemlie
+Shuttleworth
+Trebs
+
+
+# Variables
+dewpoint
+fcover
+longwave
+ndvi
+gndvi
+arvi
+vari
+glai
+savi
+msavi
+
+# Words
+evapotranspiration
+stomata

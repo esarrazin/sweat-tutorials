@@ -1,0 +1,37 @@
+{
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "cSpell.ignoreWords": [],
+  "cSpell.dictionaries": [
+    "python"
+  ],
+  "cSpell.customDictionaries": {
+    "custom-dictionary-workspace": {
+      "name": "custom-dictionary-workspace",
+      "path": "${workspaceFolder}/.cspell/custom-dictionary-workspace.txt",
+      "addWords": true,
+      "scope": "workspace"
+    }
+  },
+  "cSpell.overrides": [
+    {
+      "filename": "*.py",
+      "includeRegExpList": [
+        "/#.*$/gm",
+        "\"\"\"[\\s\\S]*?\"\"\""
+      ]
+    },
+    {
+      "filename": "*.ipynb",
+      "includeRegExpList": [
+        "/#.*$/gm",
+        "\"\"\"[\\s\\S]*?\"\"\"",
+        "/([\"'])([^\"{]*)?(?:({[^}]*}[^\"{]*)*)?([\"']/gm"
+      ]
+    }
+  ],
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  }
+}
