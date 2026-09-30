@@ -40,6 +40,8 @@ Software to install
 
 ### Installation
 
+*For Windows users, please use the PowerShell terminal*
+
 #### Clone this repository
 
 ```bash
@@ -58,19 +60,33 @@ cd sweat-tutorials
 pixi install
 ```
 
-### Run jupyter notebook
+##### Troubleshooting for MacOS
 
-1. Access to the directory
+*For MacOS users, if you encounter problem with openmp during installation.*
+
+*Install LLVM via brew*
 ```bash
-cd sweat-tutorials
+brew install llvm libomp
 ```
 
-2. Activate the environment
+*Export variables to define paths to Clang and related libraries installed*
+```bash
+export CC=/opt/homebrew/opt/llvm/bin/clang
+export CXX=/opt/homebrew/opt/llvm/bin/clang++
+export LDFLAGS="-L/opt/homebrew/opt/llvm/lib -L/opt/homebrew/opt/libomp/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/llvm/include -I/opt/homebrew/opt/libomp/include"
+```
+
+### Run jupyter notebook
+
+Navigate to the tutorial directory
+
+1. Activate the environment
 ```bash
 pixi shell
 ```
 
-3. Launch jupyter lab
+2. Launch jupyter lab
 ```bash
 jupyter lab
 ```
