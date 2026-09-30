@@ -36,7 +36,7 @@ Gain an overview of the approaches and tools developed by the TRISHNA Ecosystem 
 Software to install
 
 - git
-- pixi
+- pixi (see [instructions](https://pixi.prefix.dev/latest/installation/))
 
 ### Installation
 
@@ -90,5 +90,7 @@ pixi shell
 ```bash
 jupyter lab
 ```
+
+3. Check installation by running `notebooks/check_installation.ipynb`
 
 
