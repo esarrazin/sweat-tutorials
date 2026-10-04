@@ -18,5 +18,8 @@ _archives/
 
 # Notebooks
 .ipynb_checkpoints/
+__pycache__/
+et_copy/
+out/
 
 **/*.quarto_ipynb
