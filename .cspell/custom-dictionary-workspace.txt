@@ -70,3 +70,7 @@ msavi
 # Words
 evapotranspiration
 stomata
+beamer
+libomp
+LDFLAGS
+CPPFLAGS
