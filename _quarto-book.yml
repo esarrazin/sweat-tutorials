@@ -1,21 +1,19 @@
 project:
   type: book
   output-dir: _book
-  render: 
-    - docs/
 
 book:
   title: "SWEAT tutorials"
   author: "Emmanuelle Sarrazin"
   date: "2026-10-07"
   chapters:
-    - docs/index.qmd
+    - index.qmd
     - docs/trishna_mission.qmd
-    - docs/data_preparation.qmd
     - docs/et_models.qmd
-    - docs/sweat.qmd
     - docs/stic.qmd
     - docs/evaspa.qmd
+    - docs/data_preparation.qmd
+    - docs/sweat.qmd
     - docs/et_timeseries.qmd
     - docs/references.qmd
 
