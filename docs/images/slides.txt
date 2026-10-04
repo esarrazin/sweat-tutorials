@@ -1,0 +1,43 @@
+Goals :
+Frequent field-scale observations of surface temperatures for continental and coastal areas
+Main Missions : water in  plants and temperature of water surfaces
+Plants cool down through transpiration, hot vegetation lacks of water
+Estimation of water consumption from field to watershed scale
+Decision support tool for irrigation
+Other missions : temperatures in cities, ice and snow, volcanos, hazards and fires
+
+Launch Vehicle : PSLV
+Launch from SDSC-SHAR Sriharikota, Andhra Pradesh, India
+Launch date: 2028
+
+I-1k bus (ISRO flight heritage)
+Mass : 700 kg (S/C)+ 330 (P/L)
+Power generation	: 2kW
+Pointing accuracy	: +/- 0,05°
+Pointing stability	:  5.0 x 10-04 °/s
+TM/TC : S-band, 64 / 4kbps
+X-band data rate	: 960 Mbps
+Mass memory	: 1.4 Tb
+Mission lifetime	: 5 years
+Consumables for	: 7 years
+
+
+Developed by	AIRBUS DEFENCE AND SPACE	
+Acquisition	Across track scanner	
+Mass		210 kg	
+Power		300W/350W	
+Spectral bands	4 TIR
+Wavelength Center	8.65 / 9.0 /10.6 / 11.6μm
+Delivery		2027
+
+Developed by	ISRO / SAC
+Optical Heads	9
+Acquisition	Pushbroom
+Mass		207 kg
+Power		300W/350W
+VIS & NIR bands	5
+SWIR bands	2
+Delivery		2027
+
+2 separate ground segments based on jointed algorithms for a shared data processing
+

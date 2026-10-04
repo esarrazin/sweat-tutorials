@@ -10,7 +10,7 @@ bibliography: references.bib
 
 ## Overview
 
-Surface Temperature Initiated Closure (STIC) Algorithm
+Surface Temperature Initiated Closure (STIC) Algorithm [@mallick_surface_2014]
 
 - Purpose: Single-pixel evapotranspiration (ET) estimation
 - Model Type: One-source Surface Energy Balance (SEB) model
@@ -24,222 +24,55 @@ The objective of minimizing the impact of exogenous meteorological information o
 
 ### Analytical Framework
 
-::::: columns
+::: columns
 ::: {.column width="35%"}
-\begin{figure}
-\centering
-\includegraphics[width=0.6\linewidth]{figs/stic_schema.png}
-\end{figure}
+
+![](images/stic_model.png)
+
 :::
 
 ::: {.column width="65%"}
+
 - Combines LST with aerodynamic and heat balance equations
 - Determines two conductances:
   - Aerodynamic conductance (ga) — efficiency of air transport of heat and moisture
   - Surface conductance (gs) — vegetation canopy's ability to exchange water vapor
+
 :::
-:::::
+:::
 
 ## Core Approach & Key Components
 
 ### Analytical Framework
 
-::::: columns
+::: columns
 ::: {.column width="35%"}
-\begin{figure}
-\centering
-\includegraphics[width=0.6\linewidth]{figs/stic_schema.png}
-\end{figure}
+
+![](images/stic_model.png)
+
 :::
 
 ::: {.column width="65%"}
+
 - Integrates:
   - LST-driven water stress index
   - Aerodynamic equations for sensible (H) and latent (LE) heat
   - Modified complementary relationship advection-aridity hypothesis
   - Shuttleworth-Wallace sparse canopy + Penman-Monteith big-leaf models
+
 :::
-:::::
+:::
 
 ## Principle
 
-\begin{figure}
-\centering
-\includegraphics[width=\linewidth]{figs/stic_schema_1.png}
-\end{figure}
+![](images/stic_schema_1.png)
 
 ## Algorithm
 
-\begin{figure}
-\centering
-\includegraphics[width=0.8\linewidth]{figs/stic_algo_1.png}
-\end{figure}
+![](images/stic_algo_1.png)
 
-## Algorithm
+## Detailed algorithm
 
-\begin{figure}
-\centering
-\includegraphics[width=0.8\linewidth]{figs/stic_algo.png}
-\end{figure}
+![](images/stic_algo.png)
 
-## Algorithm steps
-
-\begin{figure}
-\centering
-\includegraphics[width=\linewidth]{figs/stic_steps.png}
-\end{figure}
-
-## Usage
-
-### Command line: stic
-
-``` bash
-Usage: stic [OPTIONS] INPUT_FILE
-
-Options:
-  --verbose / --no-verbose  Debug logging mode
-  --version                 Show the version and exit.
-  -h, --help                Show this message and exit.
-```
-
-## Usage
-
-### Notebook
-
-- Main notebook **notebooks/run_stic.ipynb**
-
-## Configuration
-
-### Input configuration
-
-- Detailed in **docs/stic/usage.md** and **docs/stic/configuration.md**
-
-## Exercices
-
-- Test **run_stic.ipynb**
-- Test **tutorial_stic.ipynb**
-
-## Software design
-
-### Module list
-
-| Module | Description |
-|----------------------------|--------------------------------------------|
-| `config.py` | Module for STIC configuration management |
-| `constant.py` | Module for STIC constants |
-| `flux.py` | Module for STIC flux computation |
-| `functions.py` | Module containing functions to compute several functions for STIC model |
-| `main.py` | Module containing the API for STIC |
-| `smwetness.py` | Module containing functions to compute soil moisture for STIC model |
-
-## Changes in new SWEAT version
-
-- Add new features:
-  - Feature to select the version of STIC to use
-  - Feature to process both rasters and data tables
-
-## Software design (new version)
-
-### Module list
-
-| Module | Description |
-|----------------------------|--------------------------------------------|
-| `config.py` | Module for STIC configuration management |
-| `constant.py` | Module for STIC constants |
-| `convert.py` | Module containing functions to convert variables used to prepare data for STIC model |
-| `main.py` | Module containing the API for STIC |
-| `models` | Module containing STIC models |
-| `registry.py` | Module containing register for STIC models |
-| `runner.py` | Module containing methods for running STIC models |
-
-## Software design (new version)
-
-- Change in the structure of the **models** module
-
-``` bash
-src/sweat/stic/models/
-|-- flux.py
-|-- functions.py
-|-- __init__.py
-|-- v1_3
-|   |-- __init__.py
-|   |-- model.py
-|   `-- smwetness.py
-`-- v1_4
-    |-- __init__.py
-    |-- model.py
-    `-- smwetness.py
-```
-
-## How to add a new model
-
-- Create a new subdirectory in *models/*
-- This directory must contain at least the **model.py** file
-- The **model.py** file must contain the following elements
-
-``` python
-VERSION: str  # Version name
-IS_DEFAULT: bool
-MAPPING_VARIABLES: dict[str,str] # Mapping of model required variables
-REQUIRED_INPUTS:list[str] # List of required input data
-def run_stic_model(...) # run STIC for a raster
-def run_batch_stic_model(...) # run SITC on a dataframe
-def run_batch_init_model(...) # run STIC init step on a dataframe
-```
-
-## How to run a model
-
-- Automatic registration with **registry.py**
-- Run with **runner.py**
-  - `run_model`
-  - `run_batch_model`
-  - `run_batch_int_model`
-
-## How to run a model
-
-### run_model
-
-``` python
-def run_model(
-  data: xr.Dataset, 
-  valid: npt.ArrayLike | None = None, 
-  threshold: float = 0.01, 
-  nb_steps: int = 15, 
-  version: str | None = None, 
-  precision: TYPES = "float32"
-) -> tuple[npt.NDArray, npt.NDArray, npt.NDArray]:
-```
-
-## How to run a model
-
-### run_batch_model
-
-``` python
-def run_batch_model(
-  data: pd.DataFrame,
-  threshold: float = 0.01,
-  nb_steps: int = 15, 
-  version: str | None = None, 
-  debug: bool = False, 
-  mapping: bool = True,
-  precision: TYPES = "float32"
-) -> npt.NDArray:
-```
-
-## How to run a model
-
-### run_batch_init_model
-
-``` python
-def run_batch_init_model(
-  data: pd.DataFrame, 
-  version: str | None = None, 
-  debug: bool = False, 
-  mapping: bool = True, 
-  precision: TYPES = "float32"
-) -> npt.NDArray:
-```
-
-## TODO
-
-Décrire la configuration
+## References

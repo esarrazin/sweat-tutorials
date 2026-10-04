@@ -16,6 +16,8 @@ Ensemble approach
 - Computes average and dispersion of results across algorithms
 - Provides final EF estimate and reliability assessment
 
+See [@gallego-elvira_evaspa_2013]
+
 ## Methodological principle: Model Assumptions & Limitations
 
 - Requires only incident radiation data (no auxiliary meteorological inputs)
@@ -25,23 +27,22 @@ Ensemble approach
 
 ## Methodological principle
 
-::::: columns
+::: columns
 ::: {.column width="50%"}
+
 - Correlation between surface temperature and reflectance of areas subject to constant atmospheric forcing
 - Two distinct thermal regimes exist under constant atmospheric forcing:
   - **Evaporation-controlled** (lower temperature): Temperature changes driven by soil moisture availability
   - **Radiation-controlled** (higher reflectance): Temperature decreases with increasing reflectance when soil moisture is depleted and evaporation ceases
+
 :::
 
 ::: {.column width="50%"}
-\vspace{1cm}
 
-\begin{figure}
-\centering
-\includegraphics[width=0.8\linewidth]{figs/ef_schema.png}
-\end{figure}
+![](images/ef_schema.png)
+
 :::
-:::::
+:::
 
 ## Algorithm
 
@@ -58,12 +59,11 @@ $$
 
 ### Evaporative fraction
 
-::::: columns
+:::: columns
 ::: {.column width="50%"}
-\begin{figure}
-\centering
-\includegraphics[width=0.8\linewidth]{figs/ef_schema.png}
-\end{figure}
+
+![](images/ef_schema_2.png)
+
 :::
 
 ::: {.column width="50%"}
@@ -75,8 +75,9 @@ $$
 
 - For fully wet conditions, i.e. Twet where LE = Rn-G and H= 0
 - For fully dry conditions, i.e. Tdry where H = Rn - G and LE=0
+
 :::
-:::::
+:::
 
 ## Algorithm
 
@@ -86,96 +87,3 @@ $$
 ET = \frac{LE}{L} = \frac{EF(R_n-G)}{L}
 $$
 
-
-## Algorithm Steps
-
-\begin{figure}
-\centering
-\hspace*{-0.6cm}\includegraphics[width=1.1\linewidth]{figs/evaspa_steps.png}
-\end{figure}
-
-## Usage
-
-### Command line: evaspa
-
-``` bash
-Usage: evaspa [OPTIONS] INPUT_FILE
-
-Options:
-  --verbose / --no-verbose  Debug logging mode
-  --version                 Show the version and exit.
-  -h, --help                Show this message and exit.
-```
-
-## Usage
-
-### Notebook
-
-- Main notebook **notebooks/run_evaspa.ipynb**
-
-## Usage
-
-### Other notebooks notebooks/evaspa
-
-- **edge_benchmark.ipynb**: Notebook to test edge configuration
-- **ef_generic_model.ipynb**: Notebook to describe how edge model works
-- **ef_models.ipynb**: Notebook to describe how EF model works
-- **ef_processing.ipynb**: Notebook to describe EF processing
-- **le_processing.ipynb**: Notebook to describe LE processing
-- **evaspa_zones.ipynb**: Notebook to describe how to define EVASPA valid zones
-- **evaspa_tiling.ipynb**: Notebook to describe how to merge EVASPA tiles
-
-## Configuration
-
-### Input configuration
-
-- Detailed in **docs/evapsa/usage.md** and **docs/evaspa/configuration.md**
-
-## Configuration
-
-### EF models configuration
-
-- Detailed in **docs/evapsa/ef_model.md**
-
-## Exercices
-
-- Test **run_evaspa.ipynb**
-- Test **tutorial_evaspa.ipynb** in tutorial data
-
-## Core concepts
-
-### Edge class
-
-\begin{figure}
-\centering
-\includegraphics[width=0.8\linewidth]{figs/edge_class.png}
-\end{figure}
-
-## Core concepts
-
-### Model class
-
-\begin{figure}
-\centering
-\includegraphics[width=0.2\linewidth]{figs/efmodel_class.png}
-\end{figure}
-
-## Software design
-
-### Module list
-
-| Module         | Description                                            |
-|----------------|--------------------------------------------------------|
-| `config.py`    | Module for EVASPA configuration management             |
-| `edge.py`      | Module containing edges classes                        |
-| `ef.py`        | Module for Evaporative Fraction model management       |
-| `merging.py`   | Module containing functions for merging datasets       |
-| `seb.py`       | Module containing functions for Surface Energy Balance |
-| `tiling.py`.py | Module for tiling management                           |
-| `zones.py`.py  | Module to manage valid zones for EVASPA                |
-
-## TODO
-
-- Décrire comment on définit un bord
-- Décrire comment on définit un modèle 
-- Décrire les étapes de evaspa et les options

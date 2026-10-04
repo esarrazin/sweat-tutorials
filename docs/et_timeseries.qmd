@@ -1,7 +1,7 @@
 ---
 author: "Emmanuelle Sarrazin"
-title: "Estimation of evapotranspiration in TRISHNA"
-subtitle: "How to compute evapotranspiration?"
+title: "ET timeseries in TRISHNA"
+subtitle: "How to compute a continuous ET timeseries?"
 date: "2026-10-07"
 ---
 
@@ -15,10 +15,7 @@ date: "2026-10-07"
 
 ### Evolution of a pixel's ET time series
 
-\begin{figure}
-\centering
-\includegraphics[width=0.8\linewidth]{figs/update_window.png}
-\end{figure}
+![](images/update_window.png)
 
 ## Algorithm
 
@@ -32,10 +29,7 @@ date: "2026-10-07"
 
 ### Update timeseries
 
-\begin{figure}
-\centering
-\includegraphics[width=0.8\linewidth]{figs/update_ts.png}
-\end{figure}
+![](images/update_ts.png)
 
 ## Algorithm
 
@@ -43,116 +37,9 @@ date: "2026-10-07"
 
 ## Algorithm step
 
-\begin{figure}
-\centering
-\includegraphics[width=0.8\linewidth]{figs/timeseries_steps.png}
-\end{figure}
+![](images/timeseries_steps.png)
 
-## Usage
-
-### timeseries: Update ET timeseries over a window
-
-```bash
-Usage: timeseries [OPTIONS] INPUT_FILE
-
-Options:
-  --verbose / --no-verbose  Debug logging mode
-  --version                 Show the version and exit.
-  -h, --help                Show this message and exit.
-```
-
-## Usage
-
-### timeseries: Update ET timeseries over a window
-
-\begin{figure}
-\centering
-\includegraphics[width=\linewidth]{figs/timeseries_usage.png}
-\end{figure}
-
-## Usage
-
-### window_timeseries: Generate ET timeseries over a time period
-
-```bash
-Usage: window-timeseries [OPTIONS] INPUT_FILE
-
-Options:
-  --verbose / --no-verbose  Debug logging mode
-  --version                 Show the version and exit.
-  -h, --help                Show this message and exit.
-```
-
-## Usage
-
-### window_timeseries: Generate ET timeseries over a time period
-
-\begin{figure}
-\centering
-\includegraphics[width=\linewidth]{figs/window_timeseries_usage.png}
-\end{figure}
-
-## Usage
-
-### Notebook
-
-### Update ET timeseries over a window
-
-* Main notebook **notebooks/run_timeseries.ipynb**
-
-### Generate ET timeseries over a time period
-
-* Main notebook **notebooks/run_window_timeseries.ipynb**
-
-## Usage
-
-### Other notebooks
-
-* For validation: **notebooks/timeseries/validation_timeseries.ipynb** 
-* For developing a new method for interpolation/extrapolation: **notebooks/timeseries/validation_new_model.ipynb** 
-
-## Configuration
-
-### Input configuration
-
-* Detailed in **docs/timeseries/usage.md** and **docs/timeseries/configuration.md**
-
-## Exercices
-
-* Test **tutorial_validation_timeseries.ipynb** in tutorial data
-
-## Software design
-
-### Module list
-
-| Module | Description |
-|--------|-------------|
-| `abstract_updater.py` | Module for abstract time series update |
-| `config.py` | Module for time series configuration management |
-| `constant.py` | Module for constants used for time series |
-| `io_handler.py` | Module for managing IO for time series |
-| `linear_updater.py` | Module for linear interpolation/extrapolation |
-| `stack_handler.py` | Module for stacking data |
-| `status_handler.py` | Module for managing pixel status |
-| `timeseries_handler.py` | Module for managing sliding windows for time series |
-| `updater_handler.py` | Module for time series update |
-
-## Core concepts
-
-\begin{figure}
-\centering
-\includegraphics[width=0.6\linewidth]{figs/updater_class.png}
-\end{figure}
-
-## Future work
-
-* Pursue the validation work on V0
-  $\Rightarrow$ Work on how to ensure continuity between extrapolation and backward extrapolation during a long period without acquisition
-* Refactoring to improve performance is planned
-* Add the equations for the V1 interpolation/extrapolation methods taking rainfall into account
-
-
-# L3 data
+# L3 data preparation
 
 ## Input list
 
@@ -167,10 +54,7 @@ Options:
 
 ## Input source: What data is downloaded?
 
-\begin{figure}
-\centering
-\includegraphics[width=0.5\linewidth]{images/input_source_l3.png}
-\end{figure}
+![](images/input_source_l3.png)
 
 ## Configuration
 
@@ -186,19 +70,11 @@ Options:
 
 ## Prepare daily radiation timeseries
 
-\begin{figure}
-\centering
-\includegraphics[width=0.8\linewidth]{images/prepare_daily_radiation_timeseries.png}
-\end{figure}
+![](images/prepare_daily_radiation_timeseries.png)
 
 ## Prepare daily ET timeseries
 
-\begin{figure}
-\centering
-\includegraphics[width=0.8\linewidth]{images/prepare_daily_et_timeseries.png}
-\end{figure}
-
-
+![](images/prepare_daily_et_timeseries.png)
 
 ## Usage: Prepare timeseries script
 
@@ -224,7 +100,7 @@ options:
 
 ### Notebooks
 
-* `notebooks/prepare_timeseries.ipynb`
+* [`notebooks/prepare_timeseries.ipynb`](https://github.com/CNES/et-dataset/blob/main/notebooks/prepare_timeseries.ipynb)
 
 ## Usage: Prepare timeseries script
 
@@ -245,6 +121,64 @@ options:
         `-- extra_YYYYMMDD.tif
 ```
 
-## Exercise
+# ET timeseries in SWEAT
 
-* Test **notebooks/prepare_timeseries_tutorial.ipynb** in tutorial data
+## Usage: Command line
+
+### timeseries: Update ET timeseries over a window
+
+```bash
+Usage: timeseries [OPTIONS] INPUT_FILE
+
+Options:
+  --verbose / --no-verbose  Debug logging mode
+  --version                 Show the version and exit.
+  -h, --help                Show this message and exit.
+```
+
+## Usage: Command line
+
+### timeseries: Update ET timeseries over a window
+
+![](images/timeseries_usage.png)
+
+
+## Usage: Command line
+
+### window_timeseries: Generate ET timeseries over a time period
+
+```bash
+Usage: window-timeseries [OPTIONS] INPUT_FILE
+
+Options:
+  --verbose / --no-verbose  Debug logging mode
+  --version                 Show the version and exit.
+  -h, --help                Show this message and exit.
+```
+
+## Usage: Command line
+
+### window_timeseries: Generate ET timeseries over a time period
+
+![](images/window_timeseries_usage.png)
+
+
+## Usage: Notebook
+
+### Update ET timeseries over a window
+
+* Main notebook [**notebooks/run_timeseries.ipynb**](https://github.com/CNES/sweat/blob/main/notebooks/run_timeseries.ipynb)
+
+### Generate ET timeseries over a time period
+
+* Main notebook [**notebooks/run_window_timeseries.ipynb**](https://github.com/CNES/sweat/blob/main/notebooks/run_windows_timeseries.ipynb)
+
+## Configuration
+
+### Input configuration
+
+* Detailed in [usage page](https://github.com/CNES/sweat/blob/main/docs/timeseries/usage.md) and [configuration page](https://github.com/CNES/sweat/blob/main/docs/timeseries/configuration.md)
+
+## Exercises
+
+- Test [**tutorial_timeseries.ipynb**](../notebooks/tutorial_timeseries.ipynb)

@@ -65,10 +65,7 @@ Strategy adopted $\Rightarrow$ Full product download:
 * [Climate Data Store](https://cds.climate.copernicus.eu/)
 * [LSA SAF Data](https://datalsasaf.lsasvcs.ipma.pt/)
 
-\begin{figure}
-\centering
-\includegraphics[width=0.55\linewidth]{images/input_source.png}
-\end{figure}
+![](images/input_source_2.png){width="80%"}
 
 # L2B Data processing
 
@@ -93,7 +90,7 @@ Strategy adopted $\Rightarrow$ Full product download:
   * Surface thermal radiation downward
   * Daily surface solar radiation downward
 
-## Prepare Landsat
+## Prepare Landsat (1/2)
 
 ### Create dataset
 
@@ -103,7 +100,7 @@ Strategy adopted $\Rightarrow$ Full product download:
 4. **NDVI**: Compute using reflectances Landsat-8 Collection 2 bands. Aggregation on a 90m grid.
 5. **LAI/FCOVER**: Compute using reflectances Landsat-8 Collection 2 bands with BVnet algorithm. Aggregation on a 90m grid.
 
-## Prepare Landsat (suite)
+## Prepare Landsat (2/2)
 
 ### Add auxiliary data
 
@@ -114,7 +111,7 @@ Strategy adopted $\Rightarrow$ Full product download:
 
 ## Prepare landsat schema
 
-![](images/prepare_landsat.png)
+![](images/prepare_landsat_2.png)
 
 # ET-dataset
 
@@ -164,26 +161,26 @@ MNT_PATH/
 ## Pre-requisites: For installation
 
 * **git**
-* **pixi**. Instruction for installation in [https://pixi.sh/](https://pixi.sh/).
+* **pixi**, see instruction for installation [here](https://pixi.prefix.dev/latest/installation/).
 
 ## Installation
 
 ### Clone the repository
 
-```console
-git clone https://src.koda.cnrs.fr/trishna/et-dataset.git
+```bash
+git clone https://github.com/CNES/et-dataset.git
 ```
 
 ### Install (with notebook dependencies)
 
-```console
+```bash
 cd et-dataset
 pixi install
 ```
 
 ## Update
 
-```console
+```bash
 cd et-dataset
 git pull
 pixi shell
@@ -193,7 +190,7 @@ pip install .[notebook]
 ## Usage
 
 To activate the environment
-```console
+```bash
 pixi shell
 ```
 

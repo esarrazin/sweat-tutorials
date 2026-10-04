@@ -20,7 +20,8 @@ Gain an overview of the approaches and tools developed by the TRISHNA Ecosystem 
   - EVASPA (EVapotranspiration Assessment from SPAce)
     
 - Presentation of their advantages and limitations.
-- Presentation of SWEAT (Spatial Waterstress Evapotranspiration Assessment for TRISHNA)
+- Description of data preparation
+- Presentation of SWEAT (Spatial Water stress Evapotranspiration Assessment for TRISHNA)
 - Exploring these algorithms through notebooks to understand how they work and how to interpret their results.
 
 ### From daily product to time series 

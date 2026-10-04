@@ -30,10 +30,10 @@ website:
       background: light
       contents:
         - docs/et_models.qmd
-        - docs/data_preparation.qmd
-        - docs/sweat.qmd
         - docs/stic.qmd
         - docs/evaspa.qmd
+        - docs/data_preparation.qmd
+        - docs/sweat.qmd
 
     - title: "ET time series"
       contents:

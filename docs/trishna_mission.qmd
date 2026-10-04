@@ -10,13 +10,42 @@ sidebar: false
 
 ## Indo-French mission
 
-Monitoring our ecosystems from space $\Rightarrow$ Measuring the surface temperature of land surfaces and coastal zones with high resolution and high revisit frequency.
+**Monitoring our ecosystems from space** 
 
-![TRISHNA Satellite © CNES/ill./REGY Michel, 2021](images/satellite-trishna.jpg)
+* Measuring the **surface temperature** of land surfaces and coastal zones to understand Earth's energy, water cycles and how landscapes respond to environmental change
+
+* Measuring **evapotranspiration** to determine agricultural water consumption, assessing drought conditions, monitoring crops and carbon budgets.
+
+* Measuring with **high resolution** and **high revisit** frequency.
+
+![TRISHNA Satellite](images/trishna_satellite_earth_view.png)
+
+## TRISHNA goals
+
+* Frequent field-scale observations of surface temperatures for continental and coastal areas
+* Main Missions : **water in  plants** and **temperature of water surfaces**
+
+  * Plants cool down through transpiration, hot vegetation lacks of water
+  * Estimation of water consumption from field to watershed scale
+  * Decision support tool for irrigation
+
+* Other missions : temperatures in cities, ice and snow, volcanos, hazards and fires
+
+<div style="display: flex; gap: 10px; justify-content: center; flex-wrap: nowrap;">
+  <img src="images/trishna_image1.png" width="100" alt="Image 1">
+  <img src="images/trishna_image2.png" width="100" alt="Image 2">
+  <img src="images/trishna_image3.png" width="100" alt="Image 3">
+  <img src="images/trishna_image4.png" width="100" alt="Image 4">
+  <img src="images/trishna_image5.png" width="100" alt="Image 5">
+  <img src="images/trishna_image6.png" width="100" alt="Image 6">
+  <img src="images/trishna_image7.png" width="100" alt="Image 7">
+  <img src="images/trishna_image8.png" width="100" alt="Image 8">
+  <img src="images/trishna_image9.png" width="100" alt="Image 9">
+</div>
 
 ## TRISHNA mission themes 
 
-![](images/trishna_objectives.png)
+![](images/trishna_themes.png)
 
 ## Indo-French mission
 
@@ -27,6 +56,7 @@ Monitoring our ecosystems from space $\Rightarrow$ Measuring the surface tempera
 - ISRO/CNES cooperation
 - Launch 2028
 - 5-year lifetime
+- Design drivers: ecosystem stress and water use; coastal & inlands waters
 
 :::
 
@@ -38,22 +68,32 @@ Monitoring our ecosystems from space $\Rightarrow$ Measuring the surface tempera
 
 :::
 
-## Indo-French ground segment
-
-![](images/ground_segment.png)
-
 # TRISHNA mission characteristics
 
-## Overview
+## Orbit overview
 
-* Altitude:761 km, Sun synchronous 
-* Swath +/-34° 1030 km
-* Local time:12:30 +/-5 min, descending Node
+::: {.columns}
+
+::: {.column width="50%"}
+
+* Altitude: 761 km, Sun synchronous
+* Swath: +/-38° $\rightarrow$ 1030 km
+* Local time: 12:30 +/-5 min descending node
 * Orbit cycle: 8 days geometric revisit time, 3 days revisit  with different viewing angles
+
+:::
+
+::: {.column width="50%"}
+
+![](images/trishna_orbit.png)
+
+:::
+
+:::
 
 ## TRISHNA resolution
 
-- 60m ground resolution
+* 60m ground resolution
 
 ## Visible to infrared electromagnetic spectrum
 
@@ -68,23 +108,22 @@ Monitoring our ecosystems from space $\Rightarrow$ Measuring the surface tempera
 
 - VNIR-SWIR (7 bands): day-time acquisition
 - TIR (4 bands): day-time/night-time acquisition
-- NeDT  0.2K at instrument output, AKA  0.5K
 
-![](images/spectral_bands.png)
+![](images/trishna_bands.png)
 
 ## TRISHNA VNIR-SWIR spectral bands
 
 ::: {.text-tiny}
 
-| Band  name | Wavelength Center (µm) | Bandwidth (nm) | Purpose |
-|------------|------------------------|----------------|---------|
-| Blue       | 0.485                  |     70         | Detection  of low clouds |
-| Green      | 0.555                  |     70         | Coastal,  sediments, snow | 
-| Red        | 0.670                  |     60         | Vegetation (LAI, fCOVER, NDVI, ...) |
-| NIR        | 0.860                  |     40         | Vegetation (LAI, fCOVER, NDVI, ...) |
-| WV         | 0.910                  |     30         | Water vapour content estimation |
-| Cirrus     | 1.380                  |     30         | Detection of thin cirrus clouds | 
-| SWIR       | 1.610                  |     100        | AOD, snow/cloud  discrimination, vegetation stress , burnt areas |
+| Band name | $\lambda$ (µm) | Band width (nm) | Purpose |
+|---|---|---|---------------------|
+| Blue    | 0.485  | 70  | Detection  of low clouds |
+| Green   | 0.555  | 70  | Coastal,  sediments, snow | 
+| Red     | 0.670  | 60  | Vegetation (LAI, fCOVER, NDVI, ...) |
+| NIR     | 0.860  | 40  | Vegetation (LAI, fCOVER, NDVI, ...) |
+| *WV*      | 0.910  | 30  | Water vapour content estimation |
+| *Cirrus*  | 1.380  | 30  | Detection of thin cirrus clouds | 
+| SWIR    | 1.610  | 100 | AOD, snow/cloud  discrimination, vegetation stress , burnt areas |
 
 :::
 
@@ -92,12 +131,12 @@ Monitoring our ecosystems from space $\Rightarrow$ Measuring the surface tempera
 
 ::: {.text-tiny}
 
-| Band  name | Wavelength Center (µm) | Bandwidth (nm) | Purpose |
-|------------|------------------------|----------------|---------|
-| TIR 1      | 8.65                   |     350        | Temperature/emissivity separation |
-| TIR  2     | 9.0                    |     350        | Temperature/emissivity separation |
-| TIR 3      | 10.6                   |     700        | Split-window |
-| TIR 4      | 11.6                   |     1000       | Split-window |
+| Band name | $\lambda$ (µm) | Band width (nm) | Purpose |
+|---|---|---|---------|
+| TIR 1  | 8.65  | 350  | Temperature/emissivity separation |
+| TIR 2  | 9.0   | 350  | Temperature/emissivity separation |
+| TIR 3  | 10.6  | 700  | Split-window |
+| TIR 4  | 11.6  | 1000 | Split-window |
 
 :::
 
@@ -109,7 +148,7 @@ Monitoring our ecosystems from space $\Rightarrow$ Measuring the surface tempera
 
 ::: {.columns}
 
-::: {.column width="50%"}
+::: {.column width="60%"}
 
 - Continental  surfaces
 - Coastal areas 100 km  from  the coastline
@@ -117,7 +156,7 @@ Monitoring our ecosystems from space $\Rightarrow$ Measuring the surface tempera
 
 :::
 
-::: {.column width="50%"}
+::: {.column width="40%"}
 
 - Closed seas + Mediterranean Sea
 - Antarctica coastline
@@ -128,38 +167,179 @@ Monitoring our ecosystems from space $\Rightarrow$ Measuring the surface tempera
 
 :::
 
-## TRISHNA average revisit (in days)
+## TRISHNA revisit
 
-- 3-day revisit
 ![](images/trishna_revisit.png)
-![](images/trishna_revisit_legend.png)
 
 ## TRISHNA overpass time
 
-- Overpass time:  12:30  PM  & AM  at the Equator
+- Overpass time: 12:30 PM & AM at the Equator
 - Minimizing the sensitivity of LST measurement to overpass time
 
-::: {.columns}
-
-::: {.column width="50%"}
-
-![](images/lst_vs_time.png){height="4in"}
-
-:::
-
-::: {.column width="50%"}
-
-![](images/lst_vs_time_2.png){height="4in"}
-
-:::
-
-:::
+![](images/lst_vs_time.png){height="3in"}
 
 ## TRISHNA observation angles
 
 - Different observation angles, up to 38  deg
 
 ![](images/hot_spot.png)
+
+## TRISHNA Launch
+
+
+::: {.columns}
+
+::: {.column width="30%"}
+
+* Launch Vehicle : PSLV
+* Launch from SDSC-SHAR Sriharikota, Andhra Pradesh, India
+* Launch date: 2028
+
+:::
+
+::: {.column width="70%"}
+
+<div style="display: flex; gap: 50px; justify-content: center; flex-wrap: nowrap;">
+  <figure style="text-align: center; margin: 0;">
+    <img src="images/trishna_launcher.png" height="200" alt="PSLV">
+    <figcaption>PSLV Launcher</figcaption>
+  </figure>
+  <figure style="text-align: center; margin: 0;">
+    <img src="images/trishna_launch_site.png" height="200" alt="Launch site">
+    <figcaption>Launch Site</figcaption>
+  </figure>
+</div>
+
+:::
+
+:::
+
+## TRISHNA satellite characteristics
+
+::: {.columns}
+
+::: {.column width="60%"}
+
+* I-1k bus (ISRO flight heritage)
+* Mass : 700 kg (S/C)+ 330 (P/L)
+* Power generation	: 2kW
+* Pointing accuracy	: +/- 0,05°
+* Pointing stability	:  5.0 x 10-04 °/s
+* TM/TC : S-band, 64 / 4kbps
+* X-band data rate	: 960 Mbps
+* Mass memory	: 1.4 Tb
+* Mission lifetime	: 5 years
+* Consumables for	: 7 years
+
+:::
+
+::: {.column width="40%"}
+
+![](images/trishna_satellite_schema.png){height="200px"}
+
+:::
+
+:::
+
+## TRISHNA VIS -- NIR -- SWIR instrument
+
+::: {.columns}
+
+::: {.column width="50%"}
+
+![](images/trishna_vswir_sensor.png)
+  
+:::
+
+::: {.column width="50%"}
+
+* Developed by	ISRO / SAC
+* Optical Heads	9
+* Acquisition	Pushbroom
+* Mass		207 kg
+* Power		300W/350W
+* VIS & NIR bands	5
+* SWIR bands	2
+* Delivery		2027
+
+:::
+
+:::
+
+
+## TRISHNA TIR instrument
+
+::: {.columns}
+
+::: {.column width="50%"}
+
+![](images/trishna_tir_sensor.png)
+  
+:::
+
+::: {.column width="50%"}
+
+* Developed by	AIRBUS DEFENCE AND SPACE	
+* Acquisition	Across track scanner	
+* Mass		210 kg	
+* Power		300W/350W	
+* Spectral bands	4 TIR
+* Wavelength Center	8.65 / 9.0 /10.6 / 11.6μm
+* Delivery		2027
+
+:::
+
+:::
+
+## Collaboration in Europe
+
+![](images/collaboration.png)
+
+## Collaboration in India
+
+![](images/collaboration_inde.png)
+
+## Indo-French ground segment
+
+![](images/trishna_ground_segment.png)
+
+## Indo-french work share
+
+- Production
+- Cataloguing
+- Cross-validation
+
+## TRISHNA tile repartition
+
+![](images/trishna_tile_repartition.png)
+
+## TRISHNA cross validation
+
+![](images/trishna_cross_validation.png)
+
+
+## TRISHNA Milestones
+
+![](images/trishna_milestones.png)
+
+## TRISHNA Production and data distribution
+
+- Free & open data policy
+- Objective: 
+
+  - Products available 12h after acquisition for L2A & L2Bv
+  - Products available 15h after acquisition for L3
+
+- Distributed products per day: 81623
+- Significant volume: \~10 Po over 7 years
+
+## TRISHNA Portals
+
+![](images/trishna_distribution.png)
+
+## TRISHNA processing chain
+
+![](images/trishna_processing_chain_white.png)
 
 # TRISHNA products
 
@@ -173,22 +353,23 @@ Monitoring our ecosystems from space $\Rightarrow$ Measuring the surface tempera
     conservation, the value of the reflectance is in the inclusive
     interval 0 to 1.
 
-## Products overview 
+## Distributed products overview 
 
-- Free & open data policy
 - **Level 1**: top-of-atmosphere radiances and brightness temperatures
 - **Level 2**: ground and water reflectances, Land and Sea Surface temperature, Land Surface emissivities, vegetation variables, albedo, daily evapotranspiration
 
 ## Level 1C products
 
-- Radiometrically and geometrically calibrated
-- Orthorectified  and resampled on a uniform spatial grid (Sentinel-2 tiles, Copernicus DEM)
 - TOA reflectances x7 VNIR/SWIR bands
 - TOA radiances x4 TIR bands $\Rightarrow$ Brightness temperatures
+- Cloud mask
+- *Radiometrically and geometrically calibrated*
+- *Orthorectified  and resampled on a uniform spatial grid (Sentinel-2 tiles, Copernicus DEM)*
 
 ## What is brightness temperature?
 
 ### What is a black body ?
+
 * A black body or blackbody is an idealized physical body that absorbs all incident electromagnetic radiation, regardless of frequency or angle of incidence. 
 
 ### What is brightness temperature?
@@ -207,77 +388,21 @@ where
 - $\sigma_{B}$ Boltzmann's constant
 - $T$ temperature
 
-## Top-Of-Atmosphere TIR Radiance
-
-For TIR domain, the Top-Of-Atmosphere (TOA) radiance measured is
-composed of multiple terms coming from the surface and atmosphere
-emissions.
-
-*Hypothesis*: Neglect contribution of direct and atmospheric scattered
-solar energies in TIR range
-
-
-$$
-\tag{TOA Radiance}
-L_{\lambda}(\theta,\phi) = \tau_{\lambda}(\theta,\phi) \left[ \epsilon_{\lambda}(\theta,\phi) B_{\lambda}(T(\theta,\phi)) + (1-\epsilon_{\lambda}(\theta,\phi)) L^{atm\downarrow}_{\lambda}(\theta,\phi)\right] + L^{atm\uparrow}_{\lambda}(\theta,\phi)
-$$
-
-where
-
-- $\theta$ zenith angle and $\phi$ azimuth angle
-- $\epsilon_{\lambda}$ land surface emissivity
-- $T$ land surface temperature
-- $L^{atm\downarrow}_{\lambda}$ downward atmospheric radiance
-- $L^{atm\uparrow}_{\lambda}$ upward atmospheric radiance
-- $\tau_{\lambda}$ atmospheric transmittance
-- $B_{\lambda}$ spectral radiance of a black body (Planck's law)
-
 ## Radiance transfer in the atmosphere
 
 Radiative transfer equation in the atmosphere:  TRISHNA Level 1C to level 2A
 
 $$
-L_{\lambda,TOA} = L^{\uparrow} +\left[ \rho_{\lambda} \times L^{\downarrow} + \epsilon_{\lambda} \times B(T) \right]  \times  \tau_{\lambda}
+L_{\lambda,TOA} = L^{\uparrow}_{\lambda} +\left[ \rho_{\lambda} \times L^{\downarrow} + \epsilon_{\lambda} \times B(T) \right]  \times  \tau_{\lambda}
 $$
 
-At-sensor Radiance
-Radiance from the atmosphere
-Radiance leaving the Earth surface
-Atmospheric Transmission
-## Level 2A products
-
-- Land & Water Surface reflectances x5 VNIR/SWIR bands
-- Land Surface Temperature and Sea Surface Temperature
-- Land Surface Emissivity x4 TIR bands
-- Cloud mask, Total Water Vapor Content
-
-## Top-Of-Canopy Radiance
-
-The TOC radiance includes the surface emission term and the surface
-reflected downward atmospheric emission term
-
-$$
-\tag{TOC Radiance}
-L_{\lambda}^{TOC}(\theta,\phi) = \left[ \epsilon_{\lambda}(\theta,\phi) B_{\lambda}(T(\theta,\phi)) + (1-\epsilon_{\lambda}(\theta,\phi)) L^{atm\downarrow}_{\lambda}(\theta,\phi)\right]
-$$
-
-where
-
-- $\theta$ zenith angle and $\phi$ azimuth angle
+- $\rho_{lambda}$ reflectance
 - $\epsilon_{\lambda}$ land surface emissivity
 - $T$ land surface temperature
-- $L^{atm\downarrow}_{\lambda}$ downward atmospheric radiance
-- $B_{\lambda}$ Planck's law
-
-## Remarks
-
-- The land surface temperature and emissivity depend on $(\theta,\phi)$
-- The TOC radiance is a function of surface temperature and surface emissivity.
-- Emissivity is an intrinsic property of the surface.
-- The surface temperature varies with irradiance and local atmospheric conditions.
-- $L_{\lambda}^{atm\downarrow}$, $L_{\lambda}^{atm\uparrow}$ and
-  $\tau$ are estimated with an atmospheric radiative transfer model
-  using atmospheric profiles of pressure, air temperature and relative humidity as inputs.
+- $L^{\downarrow}_{\lambda}$ downward atmospheric radiance
+- $L^{\uparrow}_{\lambda}$ upward atmospheric radiance
+- $\tau_{\lambda}$ atmospheric transmittance
+- $B_{\lambda}$ spectral radiance of a black body (Planck's law)
 
 ## Atmospheric correction 
 
@@ -292,114 +417,112 @@ where
 - $L_{\lambda}^{atm\uparrow}$ upwelling atmospheric radiance
 - $\tau$ atmospheric transmittance
 
+## Top-Of-Canopy Radiance
+
+The TOC radiance includes the surface emission term and the surface
+reflected downward atmospheric emission term
+
+$$
+L_{\lambda}^{TOC}(\theta,\phi) = \left[ \epsilon_{\lambda}(\theta,\phi) B_{\lambda}(T(\theta,\phi)) + \rho_{\lambda}(\theta,\phi) L^{\downarrow}_{\lambda}(\theta,\phi)\right]
+$$
+
+where
+
+- $\theta$ zenith angle and $\phi$ azimuth angle
+- $\epsilon_{\lambda}$ land surface emissivity
+- $\rho_{\lambda}$ surface reflectance
+- $T$ land surface temperature
+- $L^{atm\downarrow}_{\lambda}$ downward atmospheric radiance
+- $B_{\lambda}$ Planck's law
+
+## Remarks
+
+- The land surface temperature, emissivity and reflectance depend on $(\theta,\phi)$
+- The TOC radiance is a function of surface temperature and surface emissivity.
+- Emissivity is an intrinsic property of the surface.
+- The surface temperature varies with irradiance and local atmospheric conditions.
+- $L_{\lambda}^{\downarrow}$, $L_{\lambda}^{\uparrow}$ and
+  $\tau$ are estimated with an atmospheric radiative transfer model
+  using atmospheric profiles of pressure, air temperature and relative humidity as inputs.
+
 ## Emissivity [@norman_terminology_1995]
 
--   For isothermal, homogeneous emitters, the emissivity can be defined
-    as the ratio of the actual emitted radiance to the radiance emitted
-    from a black body at the same thermodynamic temperature.
+- For isothermal, homogeneous emitters, the emissivity can be defined
+  as the ratio of the actual emitted radiance to the radiance emitted
+  from a black body at the same thermodynamic temperature.
 
--   For heterogeneous surfaces that are not in thermal equilibrium, the
-    concept of directional emissivity is ambiguous. An ensemble of black
-    bodies at different temperatures does not have a radiance dependence
-    on temperature that can be represented by a single black body at a
-    single temperature, and the radiance of this ensemble depends on the
-    temperature distribution among these black bodies. Therefore, the
-    radiance of an ensemble of natural media at different temperatures
-    is not simply related to a black body distribution at the same
-    effective temperature.
+- For heterogeneous surfaces that are not in thermal equilibrium, the
+  concept of directional emissivity is ambiguous. 
+
+::: {.content-hidden when-format="revealjs"}
+::: {.content-hidden when-format="beamer"}
+
+  An ensemble of black bodies at different temperatures does not have a radiance dependence
+  on temperature that can be represented by a single black body at a
+  single temperature, and the radiance of this ensemble depends on the
+  temperature distribution among these black bodies. Therefore, the
+  radiance of an ensemble of natural media at different temperatures
+  is not simply related to a black body distribution at the same
+  effective temperature.
+
+:::
+:::
+
+## Level 2A products
+
+- Land & Water Surface reflectances x5 VNIR/SWIR bands
+- Land Surface Temperature and Sea Surface Temperature
+- Land Surface Emissivity x4 TIR bands
+- Cloud mask, Total Water Vapor Content
+- *Precision NeDt 0.2K at instrument output, AKA 0.5K*
 
 ## Level 2B products
 
 Biophysical variables
 
-- Vegetation variables
 - Surface albedo
+- Vegetation variables
 - Instantaneous radiation
 - Daily Evapotranspiration
 
-## Level 2B: Vegetation variables
-
-TODO Decrire BVnet
-
 ## Level 2B: Broadband surface albedo
 
-TODO
+- Instant albedo
+- Climate albedo
+
+## Level 2B: Vegetation variables
+
+- LAI
+- FAPAR
+- Fraction cover
+
+## Level 2B: Vegetation variables algorithm
+
+![](images/bvnet.png)
 
 ## Level 2B: Instantaneous radiation
 
-TODO
+- Shortwave downwelling radiation
+- Diffuse fraction
+- Longwave downwelling radiation
 
 ## Level 2B: Daily evapotranspiration
 
 * Contextual daily evapotranspiration (EVASPA)
+  
+  - Instantaneous evaporative fraction
+  - Daily evapotranspiration
+  - Water stress
+
 * Single-pixel daily evapotranspiration (STIC)
-* Water stress indices
+
+  - Instantaneous evaporative fraction
+  - Daily evapotranspiration
+  - Water stress
 
 ## Level 3 products
 
-- Building a continuous time series of daily evapotranspiration (level 3 product)
-
-## TRISHNA Production and data distribution
-
-- Significant volume: \~10 Po over 7 years
-- Objective: products available 12h after acquisition for vegetation water stress detection and irrigation management
-- Indo-french work share
-  - Production
-  - Cataloguing
-  - Cross-validation
-
-![](images/trishna_tiles.png)
-
-## TRISHNA VIS -- NIR -- SWIR instrument
-
-::: {.columns}
-
-::: {.column width="60%"}
-
-![](images/sensor_1.png)
-  
-:::
-
-::: {.column width="40%"}
-
-- Push-broom  concept
-- Developed  by ISRO/SAC
-
-:::
-
-:::
-
-## TRISHNA TIR instrument
-
-
-::: {.columns}
-
-::: {.column width="60%"}
-
-![](images/sensor_2.png)
-  
-:::
-
-::: {.column width="40%"}
-
-- Developed  by AIRBUS DEFENCE AND SPACE
-- Acquisition Across track scanner
-
-:::
-
-:::
-
-## TRISHNA MILESTONES
-
-TODO
-
-## Collaboration in Europe
-
-![](images/collaboration.png)
-
-## Collaboration in India
-
-![](images/collaboration_inde.png)
+- Continuous time series of daily evapotranspiration
 
 ## International cooperation
 

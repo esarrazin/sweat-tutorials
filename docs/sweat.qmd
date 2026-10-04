@@ -17,33 +17,33 @@ SWEAT contains several algorithms used in TRISHNA mission to compute evapotransp
 ## Pre-requisites
 
 - **git**
-- **pixi** Instructions for installation in <https://pixi.sh/>
+* **pixi**, see instruction for installation [here](https://pixi.prefix.dev/latest/installation/).
 
 ## Installation
 
 ### Clone the repository
 
-``` console
-git clone https://src.koda.cnrs.fr/trishna/sweat.git
+```bash
+git clone https://github.com/CNES/sweat.git
 ```
 
 ### Install
 
-``` console
+```bash
 cd sweat/
 pixi install
 ```
 
 ### Install notebooks dependencies
 
-``` console
+```bash
 pixi shell
 pip install .[notebook]
 ```
 
 ## Update
 
-``` console
+```bash
 cd et-dataset
 git pull
 pixi shell
@@ -54,13 +54,13 @@ pip install .[notebook]
 
 ### Install in a developer mode (dev tools, notebooks, docs)
 
-``` console
+```bash
 pixi install -e dev
 ```
 
 ### Update in developer mode
 
-``` console
+```bash
 cd et-dataset
 git pull
 pixi shell -e dev
@@ -70,7 +70,7 @@ pixi shell -e dev
 
 ### Activate the environment
 
-``` console
+```bash
 pixi shell [-e dev]
 ```
 
@@ -83,11 +83,22 @@ pixi shell [-e dev]
 - **timeseries**
 - **window_timeseries** (timeseries over a period)
 
+## Usage: High-level API
+
+Provide by module `sweat.api`
+
+- **run_evaspa**
+- **run_stic**
+- **run_timeseries**
+- **run_window_timeseries**
+
 ## Usage: Notebooks
+
+Provide examples to use API
 
 ### Activate the environment
 
-``` console
+```bash
 pixi shell
 jupyter-lab
 ```
@@ -97,112 +108,229 @@ jupyter-lab
 - Main notebooks located in the root of notebooks directory
 - More detailed notebooks in subdirectories of notebooks directory
 
-## Usage
-
-### Remark on inputs
-
-- SWEAT uses the band descriptions during input reading to determine which variable each band corresponds to.
-- It is essential to correctly write the band name in the description field and to ensure that the band names match the expected format.
-
 ## Documentation generation
 
 ### Installation
 
-``` console
+```bash
 pixi shell
 pip install -e .[docs]
 ```
 
 ### Build the documentation
 
-``` console
+```bash
 mkdocs build
 ```
 
 ### Start the live-reloading docs server
 
-``` console
+```bash
 mkdocs serve
 ```
 
-## Documentation generation
+## Documentation visualization
 
 Open <http://localhost:8000/>
 
-\begin{figure}
-\centering
-\includegraphics[width=0.8\linewidth]{figs/documentation_sweat.png}
-\end{figure}
+![](images/documentation_sweat.png)
 
-## Software design
+## Remark on inputs
 
-### File tree structure
+- SWEAT uses the band descriptions during input reading to determine which variable each band corresponds to.
+- It is essential to correctly write the band name in the description field and to ensure that the band names match the expected format.
+- SWEAT is compatible with et-dataset.
 
-\footnotesize
+# STIC
 
-``` bash
-|-- CONTRIBUTING.md
-|-- docs
-|-- hooks
-|-- Makefile
-|-- mkdocs.yml
-|-- notebooks
-|-- pyproject.toml
-|-- README.md
-|-- ruff.toml
-|-- src
-|-- tests
-`-- troubleshooting.md
+## STIC Algorithm steps
+
+![](images/stic_steps_2.png)
+
+## Usage: Command line
+
+```bash
+Usage: stic [OPTIONS] INPUT_FILE
+
+Options:
+  --verbose / --no-verbose  Debug logging mode
+  --version                 Show the version and exit.
+  -h, --help                Show this message and exit.
+```
+## Usage: Command line
+
+### Input file description
+
+* **input**: provide information for input data
+* **output**: provide information to write results
+* **params**: provide parameters to processing steps
+* **debug** (optional): provide information for debug mode
+
+## Usage: Command line
+
+An example of input file:
+
+```json
+{
+    "input":{
+        "path": "tests/data/data_test_20230303T112730.tif",
+        "date": "2023-03-03T11:27:30-00:00"
+    },
+    "output":{
+        "path":"out"
+    }
+}
 ```
 
-\normalsize
+## Usage: Command line
 
-## Software design
+### Output description
 
-### Module list
+- a directory **stic_daily** which contains daily products: LE, ET and flags
+- a directory **stic_inst** which contains instantaneous products: EF, LE, ET and flags
+- a directory **stic_waterstress** which contains water stress products: water stress and flags
+- a file **config.json** which contains the detailed configuration used
+- a directory **debug** if debug mode is activated
 
-\footnotesize
+## Usage: High-level API
 
-| Module         | Description                                 |
-|----------------|---------------------------------------------|
-| `api.py`       | High-level API                              |
-| `cli`          | Module for CLI management                   |
-| `common`       | Module containing common submodules         |
-| `debugging.py` | Module for debugging management             |
-| `evaspa`       | Module containing EVASPA submodules         |
-| `logging.py`   | Module for logging                          |
-| `misc`         | Module containing auxiliary data submodules |
-| `stic`         | Module containing STIC submodules           |
-| `timeseries`   | Module containing timeseries submodules     |
+```bash
+def run_stic(
+    data: xr.Dataset, params: dict, debug: dict | None = None
+) -> tuple[xr.Dataset, xr.Dataset, xr.Dataset] | None:
+```
 
-\normalsize
+### Inputs
 
-## Core concepts
+- **data** input data
+- **params** parameters configuration
+- **debug** debug configuration
 
-### Configuration Management
+### Outputs
 
-- Stored in *JSON* format
+- Instant dataset: EF, LE, ET and flags
+- Daily dataset: LE, ET and flags
+- Water stress dataset: water stress and flags
 
-- Managed via `Pydantic`
+## Usage: Notebook
 
-  - validate JSON configuration file and configuration dictionary:
-    - Verify that the required parameters are present.
-    - Verify that the parameters conform to the expected format.
-    - Verify that the parameters conform to the expected values.
-  - Handle default parameter values, so the code can be run with very few parameters specified
+- Main notebook [**../notebooks/run_stic.ipynb**](https://github.com/CNES/sweat/blob/main/../notebooks/run_stic.ipynb)
 
-$\Rightarrow$ **Objective** To perform an early configuration check to avoid a later error during execution.
+## Configuration
 
-## Core concepts
+### Input configuration
 
-### Configuration Management
+- Detailed in [usage page](https://github.com/CNES/sweat/blob/main/docs/stic/usage.md) and [configuration page](https://github.com/CNES/sweat/blob/main/docs/stic/configuration.md)
 
-- The complete configuration used for each SWEAT run is written to the *config.json* file located in the output directory
-- This file can then be used for a new execution of the code.
+## Exercises
 
-## Core concepts
+- Test [**tutorial_stic.ipynb**](../notebooks/tutorial_stic.ipynb)
+- Test [**tutorial_stic_on_sites.ipynb**](../notebooks/tutorial_stic_on_sites.ipynb)
 
-### High-level API
+# EVASPA
 
-- Use `xarray.Dataset` for data
-- Use Python dictionaries for configuration
+## Algorithm Steps
+
+![](images/evaspa_steps.png)
+
+## Usage: Command line
+
+``` bash
+Usage: evaspa [OPTIONS] INPUT_FILE
+
+Options:
+  --verbose / --no-verbose  Debug logging mode
+  --version                 Show the version and exit.
+  -h, --help                Show this message and exit.
+```
+
+## Usage: Command line
+
+### Input file description
+
+* **input**: provide information for input data
+* **output**: provide information to write results
+* **params**: provide parameters to processing steps
+* **debug** (optional): provide information for debug mode
+
+## Usage: Command line
+
+An example of input file:
+
+```json
+{
+    "input":{
+        "path": "tests/data/data_test_20230303T112730.tif",
+        "date": "2023-03-03T11:27:30-00:00"
+    },
+    "output":{
+        "path":"out"
+    },
+    "params":{
+        "ef":{
+            "models": "default_evaspa"
+        }
+    }
+}
+```
+
+## Usage: Command line
+
+### Output description
+
+- a directory **evaspa_daily** which contains daily products: LE, ET and flags
+- a directory **evaspa_inst** which contains instantaneous products: EF, LE, ET and flags
+- a directory **evaspa_waterstress** which contains water stress products: water stress and flags
+- a file **config.json** which contains the detailed configuration used
+- a directory **debug** if debug mode is activated
+
+## Usage: High-level API
+
+```bash
+def run_evaspa(
+    data: xr.Dataset, params: dict, debug: dict | None = None
+) -> tuple[xr.Dataset, xr.Dataset, xr.Dataset] | None:
+```
+
+### Inputs
+
+- **data** input data
+- **params** parameters configuration
+- **debug** debug configuration
+
+### Outputs
+
+- Instant dataset: EF, LE, ET and flags
+- Daily dataset: LE, ET and flags
+- Water stress dataset: water stress and flags
+
+## Usage: Notebook
+
+- Main notebook [**../notebooks/run_evaspa.ipynb**](https://github.com/CNES/sweat/blob/main/../notebooks/run_stic.ipynb)
+
+## Usage: Notebook
+
+### Other notebooks ../notebooks/evaspa
+
+- **edge_benchmark.ipynb**: Notebook to test edge configuration
+- **ef_generic_model.ipynb**: Notebook to describe how edge model works
+- **ef_models.ipynb**: Notebook to describe how EF model works
+- **ef_processing.ipynb**: Notebook to describe EF processing
+- **le_processing.ipynb**: Notebook to describe LE processing
+- **evaspa_zones.ipynb**: Notebook to describe how to define EVASPA valid zones
+- **evaspa_tiling.ipynb**: Notebook to describe how to merge EVASPA tiles
+
+## Configuration
+
+### Input configuration
+
+- Detailed in [usage page](https://github.com/CNES/sweat/blob/main/docs/evaspa/usage.md) and [configuration page](https://github.com/CNES/sweat/blob/main/docs/evaspa/configuration.md)
+
+### EF models configuration
+
+- Detailed in [EF model page](https://github.com/CNES/sweat/blob/main/docs/evaspa/ef_model.md)
+
+## Exercises
+
+- Test [**tutorial_evaspa_model.ipynb**](../notebooks/tutorial_evaspa_model.ipynb)
+- Test [**tutorial_evaspa.ipynb**](../notebooks/tutorial_evaspa.ipynb)

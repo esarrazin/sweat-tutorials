@@ -18,3 +18,5 @@ _archives/
 
 # Notebooks
 .ipynb_checkpoints/
+
+**/*.quarto_ipynb

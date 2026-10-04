@@ -47,9 +47,7 @@ $ET = E + T$
 
 ## Focus on evaporation
 
-::: {.columns}
-
-::: {.column width="50%"}
+### Definition
 
 Direct water movement into the air from
 
@@ -58,10 +56,6 @@ Direct water movement into the air from
 - Wet vegetation surfaces
 - Intercepted rainfall
 
-:::
-
-::: {.column width="50%"}
-
 ### Driven factors
 
 - temperature, 
@@ -69,17 +63,13 @@ Direct water movement into the air from
 - solar radiation, 
 - wind.
 
-:::
-
-:::
-
 ## Focus on transpiration
 
 ::: {.columns}
 
 ::: {.column width="60%"}
 
-Water movement traveling from root systems through plants and exiting as vapor through small openings called **stomata**.
+Water movement traveling from root systems through plants and exiting as vapor through tiny, microscopic pores on the outer surface, called **stomata**.
 
 ### Three main steps 
 
@@ -110,7 +100,7 @@ $$\text{Transpiration ratio} = \frac{\text{Mass of water transpired}}{\text{Mass
 
 $\Rightarrow$ the transpiration ratio of crops tends to fall between 200 and 1000 
 
-## What affects transpiration?
+## What does transpiration affect?
 
 - Type of plant
 - Soil type
@@ -141,11 +131,11 @@ $\Rightarrow$ the transpiration ratio of crops tends to fall between 200 and 100
 
 ## What are the primary drivers of evapotranspiration?
 
-**Water Availability** The volume of water present in the soil and larger surface water bodies
+**Water Availability** The volume of water present in the soil and larger surface water bodies $\rightarrow$ *fuel*
 
-**Available energy** The amount of energy available in the air and soil
+**Available energy** The amount of energy available in the air and soil $\rightarrow$ *engine*
 
-**Atmospheric Demand** The humidity levels and the atmosphere's capacity to absorb water
+**Atmospheric Demand** The humidity levels and the atmosphere's capacity to absorb water $\rightarrow$ *pump*
 
 ## What are the impact of each meterological factors?
 
@@ -251,7 +241,7 @@ where:
 
 $ET_a < ET_p$
 
-# Relationships between ET terms
+## Relationships between ET terms
 
 $$
 ET_0
@@ -362,26 +352,28 @@ $$R_n = G + LE + H$$
 
 Where 
 
-- $LE$ = latent heat flux
 - $R_n$ = net radiation
 - $G$ = soil heat flux
 - $H$ is sensible heat flux 
+- $LE$ = latent heat flux
   
-$$ LE = \lambda ET$$
-
-where $\lambda$ is the specific latent heat for vaporization
-
 :::
 
 ::: {.column width="40%"}
 
-TODO IMAGE 
+![](images/bilan_white.png)
 
 :::
 
 :::
+
+$$ LE = \lambda ET$$
+
+where $\lambda$ is the specific latent heat for vaporization
 
 ## Net radiation
+
+![](images/net_radiation.png)
 
 $$
 R_n = R_{SD}(1-\alpha)+\epsilon(R_{LD} - \sigma_{SB}T_{s}^{4})
@@ -402,9 +394,11 @@ Different representations
 
 ![Different configurations of resistance networks[@zhang2016]](images/seb_models.png){height="80%"}
 
-## Temperature [@norman_terminology_1995]
+## Focus with one source model
 
-What temperature are we talking about? 
+![](images/one_source_model.png)
+
+## What temperature are we talking about? 
 
 -   **Aerodynamic temperature**: Aerodynamic temperature is the air
     temperature at the thermal roughness length. It is a key parameter
@@ -429,21 +423,27 @@ What temperature are we talking about?
 -   **Surface component temperature**: This is the temperature of the
     various elements that contribute to the pixel's radiance.*
 
+See [@norman_terminology_1995] for more details.
+
 ## Analogy with Ohm's law
 
-Flux = (Difference in potential) / Resistance = Conductance x (Difference in potential)
+$$
+\text{Flux} = \dfrac{\text{Difference in potential}}{\text{Resistance}} = \text{Conductance} \times (\text{Difference in potential})
+$$
 
 * **Electricity** $I = \Delta V / R$ (Ohm's law) The flux of electric current is directly related to the difference in electric potential.
-* **Thermodynamics** $\Phi = -k \grad T$ (Fourier's law) Heat flux flows from regions of high thermal potential (high temperature) to regions of low potential (low temperature)
+* **Thermodynamics** $\Phi = -k \nabla T$ (Fourier's law) Heat flux flows from regions of high thermal potential (high temperature) to regions of low potential (low temperature)
 * **Fluid mechanics** Fluid flux flows from areas of high pressure (high pressure potential) to areas of low pressure.
 
-## Air conductance and stomatal conductance in evapotranspiration
+## Air conductance
 
-* Describe how easily water vapor can move through different layers in the evapotranspiration process.
-* Work together 
+* Represents how easily water vapor can move through the air layer surrounding the leaf 
+* Depends on:
 
-  * If stomatal conductance is very low but air conductance is high, water loss is still limited by the stomata. 
-  * If stomatal conductance is high but air conductance is low (still air), water loss is limited by how slowly vapor can diffuse away.
+  - Wind speed $\rightarrow$ stronger wind removes the moist air layer around the leaf, allowing more evaporation
+  - Roughness $\rightarrow$ Leaf shape and size change the roughness and affect how turbulent the air becomes
+
+* Is largely passive and not controlled by the plant 
 
 ## Stomatal conductance
 
@@ -457,17 +457,12 @@ Flux = (Difference in potential) / Resistance = Conductance x (Difference in pot
   - they open stomata to take in $CO_2$ for photosynthesis, but this comes at the cost of water loss. 
   - they close stomata to conserve water, especially during dry conditions.
 
-## Air conductance
+## Air conductance and stomatal conductance in evapotranspiration
 
-* Represents how easily water vapor can move through the air layer surrounding the leaf 
-* Depends on:
+* If stomatal conductance is very low but air conductance is high, water loss is still limited by the stomata. 
+* If stomatal conductance is high but air conductance is low (still air), water loss is limited by how slowly vapor can diffuse away.
 
-  - Wind speed $\rightarrow$ stronger wind removes the moist air layer around the leaf, allowing more evaporation
-  - Roughness $\rightarrow$ Leaf shape and size change the roughness and affect how turbulent the air becomes
-
-* Is largely passive and not controlled by the plant 
-
-## Aerodynamic conductance
+## Sensible flux
 
 For one source representation
 
@@ -481,7 +476,7 @@ where
 * $T_a$ is the air temperature
 * $g_a$ air conductance ($m.s^{-1}$)
 
-## Stomatal conductance
+## Latent heat flux
 
 $$LE = \frac{\rho c_p}{\gamma}\frac{g_a g_s}{g_a + g_s} (e_{0}^{\star} - e_a)$$
 
@@ -494,6 +489,21 @@ where
 * $e_a$ is the vapor pressure at Ta ($hPa$)
 * $g_a$ air conductance ($m.s^{-1}$)
 * $g_s$ stomatal conductance ($m.s^{-1}$)
+
+## Ecosystem functioning with unstressed stomata
+ 
+![](images/unstressed.png)
+
+* Radiation explains **75 - 80%** of ET variability
+* Stomatal control: **not significant**
+
+## Stressed vegetation
+
+![](images/stressed.png)
+
+* **strong hysteresis**: Surface temperature vs radiation
+* **high thermal inertia**
+
 
 # A very large numbers of evapotranspiration methods
 
@@ -514,20 +524,11 @@ Each method involves a trade-off between
 - Computational complexity
 - Accuracy and uncertainty
 
-# Part I — Empirical and Meteorological Models
-
-## Empirical Models
-
-* Require relatively few input variables.
+## Empirical and Meteorological Models
 
 ### Typical inputs
 
-- Temperature
-- Precipitation
-- Solar radiation
-- Relative humidity
-- Wind speed
-- Day length
+- Temperature, Precipitation, Solar radiation, Relative humidity, Wind speed, Day length
 
 ### Advantages
 
@@ -543,9 +544,7 @@ Each method involves a trade-off between
 - Can perform poorly under unusual conditions
 - May not represent vegetation stress explicitly
 
-# Part II — Physically based surface-energy-balance models
-
-## Penman-Monteith methods
+## Physically based surface-energy-balance models: Penman-Monteith
 
 $$
 LE = \frac{\Delta(R_n-G)+\rho C_p VPD/r_a}{\Delta + \gamma(1+r_s/r_a)}
@@ -564,7 +563,9 @@ $$
 - $r_a$ aerodynamic resistance modeled based on crop height, $u$ wind, roughness parameters
 - $r_{s}$ surface resistance modeled based on LAI, leaf resistance
 
-## FAO56 [@allen_fao_1998]
+## Physically based surface-energy-balance models: FAO56
+
+Use to compute reference 
 
 $$
 ET_0 = \frac{0.408 \Delta (R_n - G) + \gamma\frac{900}{T_a}uVPD}{\Delta+\gamma(1+0.34u)}
@@ -577,7 +578,9 @@ $$
 - $R_n$ net radiation
 - $G$ ground flux
 
-## FAO56
+See FAO56 [@allen_fao_1998]
+
+## Physically based surface-energy-balance models: FAO56
 
 ### Advantages
 
@@ -591,47 +594,32 @@ $$
 - Sensitive to the quality of radiation, wind, humidity, and temperature data
 - Reference-surface assumptions may not describe heterogeneous landscapes
 
-## Priestley-Taylor methods
+## Physically based surface-energy-balance models: Priestley-Taylor
 
 $$
 LE = \frac{\alpha_{PT}\Delta(R_n-G)}{\Delta+\gamma}
 $$
 
+
 - $\alpha_{PT}$ Priestley-Taylor parameter
+- Do not take into account the water stress
 
-# Part III — Models Using Optical Remote-Sensing Data
+## Models using optical remote-sensing data
 
-## Optical Remote Sensing for ET Estimation
+Some models combine optical data with radiation and meteorological observations.
 
 Optical remote sensing provides information about:
 
-- Vegetation coverage
-- Leaf area
+- Albedo
+- Fraction of vegetation cover
+- LAI
+- Canopy structure
+- Surface roughness
 - Photosynthetic activity
-- Soil and vegetation reflectance
 
 Optical remote sensing does not directly measure ET. Instead, it estimates variables related to transpiration and vegetation condition.
 
-## ET Models Based on Vegetation Indices
-
-A simple approach relates crop evapotranspiration to reference ET:
-
-$$ET_c = K_c(NDVI) \times ET_0$$
-
-In this method:
-
-- Remote sensing estimates vegetation development
-- Meteorological data provide atmospheric demand
-- A relationship converts NDVI or another index into a crop coefficient
-
-Another approach uses a vegetation fraction:
-
-$$ET = f_c \times ET_{\text{vegetated}}
-+
-(1-f_c)\times ET_{\text{soil}}
-$$
-
-Where $f_c$ is the fraction of vegetation cover.
+## Models using optical remote-sensing data
 
 ### Advantages
 
@@ -647,35 +635,9 @@ Where $f_c$ is the fraction of vegetation cover.
 - Vegetation indices do not directly measure water stress
 - Calibration is often crop- and region-dependent
 
-## Optical Remote-Sensing Energy-Balance Approaches
+## Models using optical and thermal infrared remote-sensing data
 
-Some models combine optical data with radiation and meteorological observations.
-
-Examples include:
-
-- Vegetation-index-based crop coefficient models
-- Surface energy-balance models using albedo and vegetation cover
-- Light-use-efficiency models
-- Data-assimilation models combining remote sensing and land-surface models
-
-Optical data can help estimate:
-
-- Albedo
-- Fraction of vegetation cover
-- LAI
-- Canopy structure
-- Surface roughness
-- Photosynthetic activity
-
-However, optical information alone is usually insufficient to distinguish between:
-
-- Healthy vegetation with adequate water
-- Vegetation under moderate water stress
-- A naturally sparse canopy
-
-# Part IV — Models Using Optical and Thermal Infrared Remote-Sensing Data
-
-## Thermal Infrared Remote Sensing
+### Interest of surface temperature
 
 **Land Surface Temperature** is useful because ET cools the land surface:
 
@@ -684,7 +646,15 @@ However, optical information alone is usually insufficient to distinguish betwee
 
 TIR remote sensing is therefore particularly useful for detecting water stress.
 
-## Surface Temperature and Water Stress
+## Models using optical and thermal infrared remote-sensing data
+
+Surface temperature is a key indicator of plant water stress and soil moisture conditions.
+
+::: {.columns}
+
+::: {.column width="50%"}
+
+### What Does a Hot Surface Indicate?
 
 A hot surface may indicate:
 
@@ -695,6 +665,12 @@ A hot surface may indicate:
 - High sensible heat flux
 - Strong atmospheric demand
 
+:::
+
+::: {.column width="50%"}
+
+### What Does a Cool Surface Indicate?
+
 A cool surface may indicate:
 
 - Active transpiration
@@ -702,6 +678,14 @@ A cool surface may indicate:
 - Dense vegetation
 - Irrigation
 - High latent heat flux
+
+:::
+
+:::
+
+## Models using optical and thermal infrared remote-sensing data
+
+### Factors Influencing Surface Temperature
 
 However, surface temperature can also be influenced by:
 
@@ -712,20 +696,9 @@ However, surface temperature can also be influenced by:
 - Soil texture
 - Vegetation structure
 
+### Interpreting Surface Temperature
+
 Therefore, temperature should be interpreted together with meteorological and vegetation data.
-
-## Surface Energy Balance
-
-Many TIR-based models estimate ET from the surface energy balance:
-
-- $LE$ = latent heat flux
-- $R_n$ = net radiation
-- $G$ = soil heat flux
-- $H$ is sensible heat flux 
-  
-$$ LE = \lambda ET$$
-
-where $\lambda$ is the specific latent heat for vaporization
 
 ## Single-Source Energy-Balance Models: overview
 
@@ -740,12 +713,6 @@ $$
 - $C_p$ specific heat
 - $T_{aero}$ aerodynamic surface temperature $T_{aero} \approx T_s$
 - $r_a$ aerodynamic resistance modeled based on crop height, $u$ wind, roughness parameters
-
-Examples include:
-
-- SEBAL
-- METRIC
-- SEBS
 
 ## Single-Source Energy-Balance Models: General procedure
 
@@ -768,9 +735,7 @@ Examples include:
 ### Limitations
 
 - Requires careful calibration
-- Sensitive to atmospheric corrections
-- Cloud cover limits data availability
-- Results depend on assumptions about hot and cold surfaces
+- Sensitive to atmospheric data
 
 ## Single-Source Energy-Balance Models: Examples
 
@@ -778,27 +743,9 @@ Examples include:
 * METRIC **Mapping Evapotranspiration at High Resolution with Internalized Calibration**
 * SEBS **Surface Energy Balance System**
 
-## Two-Source Energy-Balance Models: Overview
-
-Two-source models separate the land surface into:
-
-1. Vegetation or canopy
-2. Soil
-
-This is important because soil evaporation and plant transpiration can behave very differently.
-
-The total latent heat flux is:
-
-$$
-LE = LE_c + LE_s
-$$
-
-Where:
-
-- $LE_c$ = canopy latent heat flux
-- $LE_s$ = soil latent heat flux
-
 ## Two-Source Energy-Balance Models
+
+Two-source models separate the land surface into: vegetation (or canopy) and soil
 
 $$
 LE = R_n - G - H = R_n - G - H_{canopy} - H_{soil}
@@ -836,15 +783,13 @@ $$
 
 ## Two-Source Energy-Balance Models: Examples
 
-- Two-Source Energy Balance, or TSEB
 - ALEXI **Atmosphere–Land Exchange Inverse**
-- DisALEXI
-- SPARSE
+- DisALEXI **Disaggregation Atmosphere–Land Exchange Inverse**
+- SPARSE **Soil Plant Atmosphere and Remote Sensing Evapotranspiration**
 
+## Comparison of ET Estimation Methods
 
-# Part IV — Comparing the Main Approaches
-
-## Slide 30 — Comparison of ET Estimation Methods
+::: {.text-tiny}
 
 | Method | Main data | Main output | Strengths | Limitations |
 |---|---|---|---|---|
@@ -854,40 +799,25 @@ $$
 | TIR remote sensing | Land-surface temperature, radiation, weather data | Actual ET and surface fluxes | Detects water stress and spatial ET patterns | Cloud-sensitive and data-intensive |
 | Hybrid models | Weather, optical, TIR, and land-surface data | High-resolution actual ET | Combines complementary information | More complex and requires integration |
 
-
-## Slide 31 — Optical Versus Thermal Remote Sensing
-
-| Characteristic | Optical remote sensing | Thermal infrared remote sensing |
-|---|---|---|
-| Main measurement | Reflected sunlight | Emitted thermal radiation |
-| Main information | Vegetation condition and cover | Surface temperature and water stress |
-| Cloud sensitivity | High | High |
-| Direct ET information | Limited | Stronger, through energy balance |
-| Useful variables | NDVI, EVI, LAI, albedo | Surface temperature, sensible heat, latent heat |
-| Main limitation | May not detect moderate water stress | Requires atmospheric correction and energy-balance assumptions |
-| Best use | Vegetation status and crop coefficients | Actual ET and stress detection |
+:::
 
 # TRISHNA evapotranspiration models
 
 ## Model selected for TRISHNA
 
-* STIC
-* EVASPA
+* [STIC](stic.qmd) **Surface Temperature Initiated Closure**
+* [EVASPA](evaspa.qmd) **Evapotranspiration from SPAce**
 
 ## Why this choice ?
 
 * Delivering actual evapotranspiration (ET) at less than 100m resolution is challenging, mainly because the performance is driven by meteorological inputs that are only available at a very low spatial resolution (0.1°) through ECMWF analysis.
 
-* STIC require few meteorological data, only air temperature and dewpoint temperature and daily rediation
+* STIC require few meteorological data, only air temperature and dewpoint temperature and daily radiation
 * EVASPA require only daily radiation
 
 # How to extrapolate to daily
 
-## ET behavior
-
-TODO
-
-### Extrapolation to daily evapotranspiration
+## Extrapolation to daily evapotranspiration
 
 - Done through an extrapolation of instantaneous data to the daily scale thanks to the use of the solar radiation ratio.
 - Defined as
