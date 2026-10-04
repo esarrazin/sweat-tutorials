@@ -3,13 +3,16 @@ author: "Emmanuelle Sarrazin"
 title: "SWEAT tutorials"
 subtitle: "How to compute evapotranspiration?"
 date: "2026-10-07"
+license: "CC BY-NC-SA 4.0"
 ---
 
-# Objective
+# Tutorial content
+
+## Objective
 
 Gain an overview of the approaches and tools developed by the TRISHNA Ecosystem Stress group for estimating evapotranspiration and water stress in ecosystems.
 
-# Tutorial content
+## Tutorial content
 
 1. What is the TRISHNA mission?
 
@@ -80,10 +83,6 @@ cd sweat-tutorials
 ```bash
 pixi install
 ```
-
-## Download test data
-
-- TODO
 
 ## Run jupyter notebook
 

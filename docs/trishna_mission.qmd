@@ -4,6 +4,7 @@ title: "TRISHNA mission"
 subtitle: "Mission characteristics"
 date: "2026-10-07"
 sidebar: false
+license: "CC BY-NC-SA 4.0"
 ---
 
 # TRISHNA mission overview

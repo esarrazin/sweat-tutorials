@@ -181,4 +181,4 @@ Options:
 
 ## Exercises
 
-- Test [**tutorial_timeseries.ipynb**](../notebooks/tutorial_timeseries.ipynb)
+- Test [**tutorial_timeseries.ipynb**](../notebooks/tutorial_et_timeseries.ipynb)

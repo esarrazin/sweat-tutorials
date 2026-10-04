@@ -95,3 +95,9 @@ jupyter lab
 3. Check installation by running `notebooks/check_installation.ipynb`
 
 
+## Licenses
+
+- **Documentation (files .qmd)** : Creative Commons CC BY-NC-SA 4.0
+  - See : [`docs/LICENSE`](docs/LICENSE)
+- **Code Python (modules and notebooks)** : AGPLv3
+  - See : [`notebooks/LICENSE`](notebooks/LICENSE)

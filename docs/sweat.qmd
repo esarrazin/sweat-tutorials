@@ -4,6 +4,7 @@ title: "SWEAT"
 subtitle: "Spatial Water stress Evapotranspiration Assessment for TRISHNA"
 date: "2026-10-07"
 bibliography: references.bib
+license: "CC BY-NC-SA 4.0"
 ---
 
 ## Overview
@@ -214,7 +215,7 @@ def run_stic(
 
 ## Usage: Notebook
 
-- Main notebook [**../notebooks/run_stic.ipynb**](https://github.com/CNES/sweat/blob/main/../notebooks/run_stic.ipynb)
+- Main notebook [**../notebooks/run_stic.ipynb**](https://github.com/CNES/sweat/blob/main/notebooks/run_stic.ipynb)
 
 ## Configuration
 
@@ -225,7 +226,7 @@ def run_stic(
 ## Exercises
 
 - Test [**tutorial_stic.ipynb**](../notebooks/tutorial_stic.ipynb)
-- Test [**tutorial_stic_on_sites.ipynb**](../notebooks/tutorial_stic_on_sites.ipynb)
+- Test [**tutorial_stic_on_sites.ipynb**](../notebooks/tutorial_stic_on_california.ipynb)
 
 # EVASPA
 
@@ -332,5 +333,5 @@ def run_evaspa(
 
 ## Exercises
 
-- Test [**tutorial_evaspa_model.ipynb**](../notebooks/tutorial_evaspa_model.ipynb)
+- Test [**tutorial_evaspa_ef_model.ipynb**](../notebooks/tutorial_evaspa_ef_model.ipynb)
 - Test [**tutorial_evaspa.ipynb**](../notebooks/tutorial_evaspa.ipynb)

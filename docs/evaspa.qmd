@@ -4,6 +4,7 @@ title: "EVASPA"
 subtitle: "EVApotranspiration from SPAce"
 date: "2026-10-07"
 bibliography: references.bib
+license: "CC BY-NC-SA 4.0"
 ---
 
 # EVASPA: EVApotranspiration from SPAce
