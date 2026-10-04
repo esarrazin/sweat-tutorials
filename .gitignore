@@ -1,5 +1,5 @@
 # pixi environments
-.pixi/*
+.pixi/
 !.pixi/config.toml
 pixi.lock
 
@@ -16,9 +16,12 @@ _book/
 # Old data
 _archives/
 
+# Python
+__pycache__/
+.mypy_cache/
+
 # Notebooks
 .ipynb_checkpoints/
-__pycache__/
 et_copy/
 out/
 
