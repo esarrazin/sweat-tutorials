@@ -30,7 +30,7 @@ Typically measured in millimeters of water in a set unit of time, i.e. volume of
 
 ::: {.column width="60%"}
 
-- **Evaporation (E)**: The physical process by which a liquid (e.g., water) becomes a gas (e.g., water vapour). [@glossary2023]
+- **Evaporation (E)**: The physical process by which a liquid (e.g., water) becomes a gas (e.g., water vapour) below its boiling point.[@glossary2023]
 
 - **Transpiration (T)**: The process by which water vapor is released by plants through small openings called **stomata**.
 
@@ -70,7 +70,7 @@ Direct water movement into the air from
 
 ::: {.column width="60%"}
 
-Water movement traveling from root systems through plants and exiting as vapor through tiny, microscopic pores on the outer surface, called **stomata**.
+Water movement traveling from root systems through plants and exiting as vapor through tiny, microscopic pores on the outer surface of the leaves, called **stomata**.
 
 ### Three main steps 
 
@@ -95,13 +95,11 @@ Water movement traveling from root systems through plants and exiting as vapor t
 * Maintenance of internal cell pressure
 * Opening of stomata, necessary for gas exchange during photosynthesis
 
-## How much water do plants transpire?
+## How much water do plants transpire to produce dry matter?
 
 $$\text{Transpiration ratio} = \frac{\text{Mass of water transpired}}{\text{Mass of dry matter produced}}$$
 
-$\Rightarrow$ the transpiration ratio of crops tends to fall between 200 and 1000 
-
-## What does transpiration affect?
+## What factor affecting transpiration?
 
 - Type of plant
 - Soil type
@@ -149,13 +147,13 @@ $\Rightarrow$ the transpiration ratio of crops tends to fall between 200 and 100
 
 ## What are the impact of each surface/vegetation factors?
 
-* **Soil moisture** Controls whether evaporation and transpiration can continue. When soil moisture becomes limited, actual ET decreases.
+* **Soil moisture** Controls the variability and proportion of evaporation versus transpiration. When soil moisture becomes limited, actual ET declines.
 * **Leaf area index** Higher LAI generally increases transpiration until the canopy becomes sufficiently dense.
 * **Canopy resistance** High canopy resistance reduces transpiration.
 * **Surface roughness** Tall or dense vegetation increases turbulence and can enhance exchange with the atmosphere.
 * **Albedo** Bright surfaces reflect more solar radiation and generally absorb less energy.
 
-## What are the Environmental and Human Factors?
+## What are the environmental and human factors?
 
 - Topography and elevation
 - Slope and aspect
@@ -375,15 +373,17 @@ where $\lambda$ is the specific latent heat for vaporization
 ## Net radiation
 
 ![](images/net_radiation.png)
-
 $$
-R_n = R_{SD}(1-\alpha)+\epsilon(R_{LD} - \sigma_{SB}T_{s}^{4})
+R_n = R_{S}^{\downarrow} - R_{S}^{\uparrow} + R_{L}^{\downarrow} - R_{L}^{\downarrow}
+$$
+$$
+R_n = R_{S}^{\downarrow}(1-\alpha)+\epsilon(R_{L}^{\downarrow} - \sigma_{SB}T_{s}^{4})
 $$
 
 Where 
 
-- $R_{SD}$ shortwave downwelling radiation
-- $R_{LD}$ longwave downwelling radiation
+- $R_{S}^{\downarrow}$ shortwave downwelling radiation
+- $R_{L}^{\downarrow}$ longwave downwelling radiation
 - $\epsilon$ land surface emissivity
 - $\alpha$ land surface albedo
 - $T_s$ land surface temperature
@@ -394,6 +394,20 @@ Where
 Different representations
 
 ![Different configurations of resistance networks[@zhang2016]](images/seb_models.png){height="80%"}
+
+## How to represent the soil-vegetation system?
+
+### Air resistance
+
+$$
+r_a = frac{1}{g_a}
+$$
+
+### Stomatal resistance
+
+$$
+r_s = frac{1}{g_s}
+$$
 
 ## Focus with one source model
 
@@ -446,7 +460,7 @@ $$
 
 * Is largely passive and not controlled by the plant 
 
-## Stomatal conductance
+## Stomatal resistance
 
 * Represents how open the stomata are to allow water vapor to escape
 
@@ -559,7 +573,7 @@ $$
 
 - $e_{sat}$ saturated vapor pressure
 - $e_a$ vapor pressure at air temperature
-- VPD Vapor Pressure Deficit
+- $VPD$ Vapor Pressure Deficit of air
 - $\gamma$ psychrometric constant
 - $r_a$ aerodynamic resistance modeled based on crop height, $u$ wind, roughness parameters
 - $r_{s}$ surface resistance modeled based on LAI, leaf resistance
@@ -575,9 +589,9 @@ $$
 - $T_a$ air temperature
 - $u$ wind
 - $\Delta$ slope of the saturation vapor pressure and temperature curve
-- $VPD$ vapor pressure deficit
+- $VPD$ vapor pressure deficit of air
 - $R_n$ net radiation
-- $G$ ground flux
+- $G$ ground heat flux
 
 See FAO56 [@allen_fao_1998]
 
