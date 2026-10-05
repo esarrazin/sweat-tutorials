@@ -5,6 +5,8 @@ Module containing functions to process data
 """
 
 import datetime as dt
+import os
+import shutil
 
 import numpy as np
 import pandas as pd
@@ -190,3 +192,41 @@ def analyze(df: pd.DataFrame):
         ),
         axis=1,
     )
+
+
+def remove_directory(file: str):
+    """
+    Remove a directory
+    """
+    shutil.rmtree(file, ignore_errors=False, onerror=None)
+
+
+def tree(directory:str = ".", prefix:str = "", is_last:bool = True):
+    """
+    Print a tree structure of the directory.
+    """
+    try:
+        entries = sorted(os.listdir(directory))
+    except PermissionError:
+        print(f"{prefix}[Permission Denied]")
+        return
+    
+    # Separate directories and files
+    dirs = [e for e in entries if os.path.isdir(os.path.join(directory, e))]
+    files = [e for e in entries if os.path.isfile(os.path.join(directory, e))]
+    
+    # Combine (directories first, then files)
+    items = dirs + files
+    
+    for index, item in enumerate(items):
+        path = os.path.join(directory, item)
+        is_last_item = (index == len(items) - 1)
+        
+        # Choose branch characters
+        current = "└── " if is_last_item else "├── "
+        print(f"{prefix}{current}{item}")
+        
+        # Recurse into directories
+        if os.path.isdir(path):
+            extension = "    " if is_last_item else "│   "
+            tree(path, prefix + extension, is_last_item)

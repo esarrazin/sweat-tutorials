@@ -1,0 +1,14 @@
+{
+    "input": {
+        "path": "data/data_test_20230303T112730.tif",
+        "date": "2023-03-03T11:27:30-00:00"
+    },
+    "output": {
+        "path": "out"
+    },
+    "params": {
+        "ef": {
+            "models": "default_evaspa"
+        }
+    }
+}
