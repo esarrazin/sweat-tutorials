@@ -54,7 +54,7 @@ date: "2026-10-07"
 
 ## Input source: What data is downloaded?
 
-![](images/input_source_l3.png)
+![](images/input_source_l3.png){.nostretch width="80%" fig-align="center"}
 
 ## Configuration
 
@@ -181,4 +181,4 @@ Options:
 
 ## Exercises
 
-- Test [**tutorial_timeseries.ipynb**](../notebooks/tutorial_et_timeseries.ipynb)
+- Test [**tutorial_et_timeseries.ipynb**](../notebooks/tutorial_et_timeseries.ipynb)

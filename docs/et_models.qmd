@@ -13,7 +13,7 @@ license: "CC BY-NC-SA 4.0"
 
 ### Definition
 
-Defined as: "The combined processes through which water is transferred to the atmosphere from open water and ice surfaces, bare soil and vegetation that make up the Earth's surface." [@glossary2023]
+Defined as: *The combined processes through which water is transferred to the atmosphere from open water and ice surfaces, bare soil and vegetation that make up the Earth's surface.* [@glossary2023]
 
 ### Unit
 
@@ -32,7 +32,7 @@ Typically measured in millimeters of water in a set unit of time, i.e. volume of
 
 - **Evaporation (E)**: The physical process by which a liquid (e.g., water) becomes a gas (e.g., water vapour) below its boiling point.[@glossary2023]
 
-- **Transpiration (T)**: The process by which water vapor is released by plants through small openings called **stomata**.
+- **Transpiration (T)**: The process by which water vapor is released by plants through small openings called *stomata*.
 
 $ET = E + T$
 
@@ -80,9 +80,14 @@ Water movement traveling from root systems through plants and exiting as vapor t
 
 :::
 
-::: {.column width="40%"}
+::: {.column width="5%"}
+:::
 
+::: {.column width="35%"}
+
+::: {style="text-align:center;"}
 ![Stomata (<a href="https://commons.wikimedia.org/wiki/File:Tomato_leaf_stomate_1-color.jpg">Photohound</a>, Public domain, via Wikimedia Commons)](images/Tomato_leaf_stomate_1-color.jpeg)
+:::
 
 :::
 
@@ -98,6 +103,8 @@ Water movement traveling from root systems through plants and exiting as vapor t
 ## How much water do plants transpire to produce dry matter?
 
 $$\text{Transpiration ratio} = \frac{\text{Mass of water transpired}}{\text{Mass of dry matter produced}}$$
+
+*Typically ranging from 200 to 1000 kg of water for every kg of dry matter in crops*
 
 ## What factor affecting transpiration?
 
@@ -115,7 +122,7 @@ $$\text{Transpiration ratio} = \frac{\text{Mass of water transpired}}{\text{Mass
 ### Major component of the hydrological cycle and climate
 
 
-- Transfer water from the land surface to the atmosphere $\rightarrow$ Two-thirds of the precipitation
+- Transfer water from the land surface to the atmosphere $\rightarrow$ 2/3 of the precipitation
 - Influence local and regional climate
 
 ### Key role in water resource management and agricultural irrigation 
@@ -176,7 +183,7 @@ $$\text{Transpiration ratio} = \frac{\text{Mass of water transpired}}{\text{Mass
 
 ## Reference evapotranspiration: $ET_0$
 
-* Represent the atmospheric evaporative demand for a standardized, well-watered reference surface.
+* Represents the atmospheric evaporative demand for a standardized, well-watered reference surface.
 
 - Uses a hypothetical grass reference surface
   - A short actively growing grass, about 0.12 m tall, completely shading the ground, well supplied with water, with standardized surface resistance and albedo
@@ -295,7 +302,7 @@ The dual approach separates:
 |---|---|
 | $ET_0$ | How strong is the atmospheric evaporative demand? |
 | $ET_p$ | How much ET could occur if water were unlimited? |
-| $ET_c$ | How much would this crop use if it were not stressed? |
+| $ET_c$ | How much would this crop use water if it were not stressed? |
 | $ET_a$ | How much water is actually being lost? |
 
 
@@ -353,7 +360,7 @@ Where
 
 - $R_n$ = net radiation
 - $G$ = soil heat flux
-- $H$ is sensible heat flux 
+- $H$ = sensible heat flux 
 - $LE$ = latent heat flux
   
 :::
@@ -366,11 +373,15 @@ Where
 
 :::
 
-$$ LE = \lambda ET$$
+$$ LE = L \times ET$$
 
-where $\lambda$ is the specific latent heat for vaporization
+where $L$ is the specific latent heat for vaporization
 
 ## Net radiation
+
+::: {.columns}
+
+::: {.column width="55%"}
 
 ![](images/net_radiation.png)
 $$
@@ -379,6 +390,12 @@ $$
 $$
 R_n = R_{S}^{\downarrow}(1-\alpha)+\epsilon(R_{L}^{\downarrow} - \sigma_{SB}T_{s}^{4})
 $$
+
+:::
+
+::: {.column width="45%"}
+
+::: {.text-small}
 
 Where 
 
@@ -389,6 +406,12 @@ Where
 - $T_s$ land surface temperature
 - $\sigma_{SB}$ Stefan-Boltzmann constant
 
+:::
+
+:::
+
+:::
+
 ## How to represent the soil-vegetation system?
 
 Different representations
@@ -397,16 +420,16 @@ Different representations
 
 ## How to represent the soil-vegetation system?
 
-### Air resistance
+### Air resistance / air conductance
 
 $$
-r_a = frac{1}{g_a}
+r_a = \frac{1}{g_a}
 $$
 
-### Stomatal resistance
+### Stomatal resistance / stomatal conductance
 
 $$
-r_s = frac{1}{g_s}
+r_s = \frac{1}{g_s}
 $$
 
 ## Focus with one source model
@@ -446,7 +469,7 @@ $$
 \text{Flux} = \dfrac{\text{Difference in potential}}{\text{Resistance}} = \text{Conductance} \times (\text{Difference in potential})
 $$
 
-* **Electricity** $I = \Delta V / R$ (Ohm's law) The flux of electric current is directly related to the difference in electric potential.
+* **Electricity** $I = U/R = \Delta V / R$ (Ohm's law) The flux of electric current is directly related to the difference in electric potential.
 * **Thermodynamics** $\Phi = -k \nabla T$ (Fourier's law) Heat flux flows from regions of high thermal potential (high temperature) to regions of low potential (low temperature)
 * **Fluid mechanics** Fluid flux flows from areas of high pressure (high pressure potential) to areas of low pressure.
 
@@ -507,14 +530,14 @@ where
 
 ## Ecosystem functioning with unstressed stomata
  
-![](images/unstressed.png)
+![](images/unstressed.png){.nostretch width="600px" fig-align="center"}
 
 * Radiation explains **75 - 80%** of ET variability
 * Stomatal control: **not significant**
 
 ## Stressed vegetation
 
-![](images/stressed.png)
+![](images/stressed.png){.nostretch width="600px" fig-align="center"}
 
 * **strong hysteresis**: Surface temperature vs radiation
 * **high thermal inertia**
@@ -530,6 +553,8 @@ where
 3. **Models using optical remote-sensing data**
 4. **Models using optical and thermal infrared remote-sensing data**
 
+::: {.text-small}
+
 Each method involves a trade-off between
 
 - Data requirements
@@ -538,6 +563,8 @@ Each method involves a trade-off between
 - Temporal frequency
 - Computational complexity
 - Accuracy and uncertainty
+
+:::
 
 ## Empirical and Meteorological Models
 
@@ -562,21 +589,17 @@ Each method involves a trade-off between
 ## Physically based surface-energy-balance models: Penman-Monteith
 
 $$
-LE = \frac{\Delta(R_n-G)+\rho C_p VPD/r_a}{\Delta + \gamma(1+r_s/r_a)}
+LE = \frac{\Delta(R_n-G)+\rho C_p g_a VPD}{\Delta + \gamma(1+g_a/g_s)}
 $$ 
-$$
-\Delta = \frac{\text{d}e_{sat}}{\text{d}T}
-$$ 
-$$
-VPD = e_{sat}-e_a
-$$
+
+with $\Delta = \frac{\text{d}e_{sat}}{\text{d}T}$ and $VPD = e_{sat}-e_a$
 
 - $e_{sat}$ saturated vapor pressure
 - $e_a$ vapor pressure at air temperature
 - $VPD$ Vapor Pressure Deficit of air
 - $\gamma$ psychrometric constant
-- $r_a$ aerodynamic resistance modeled based on crop height, $u$ wind, roughness parameters
-- $r_{s}$ surface resistance modeled based on LAI, leaf resistance
+- $g_a$ aerodynamic conductance modeled based on crop height, $u$ wind, roughness parameters
+- $g_s$ surface conductance modeled based on LAI, leaf resistance
 
 ## Physically based surface-energy-balance models: FAO56
 
@@ -663,7 +686,7 @@ TIR remote sensing is therefore particularly useful for detecting water stress.
 
 ## Models using optical and thermal infrared remote-sensing data
 
-Surface temperature is a key indicator of plant water stress and soil moisture conditions.
+**Surface temperature** is a key indicator of *plant water stress* and *soil moisture conditions*.
 
 ::: {.columns}
 
@@ -671,7 +694,7 @@ Surface temperature is a key indicator of plant water stress and soil moisture c
 
 ### What Does a Hot Surface Indicate?
 
-A hot surface may indicate:
+A *hot surface* may indicate:
 
 - Low soil moisture
 - Reduced transpiration
@@ -686,7 +709,7 @@ A hot surface may indicate:
 
 ### What Does a Cool Surface Indicate?
 
-A cool surface may indicate:
+A *cool surface* may indicate:
 
 - Active transpiration
 - Wet soil
@@ -702,7 +725,7 @@ A cool surface may indicate:
 
 ### Factors Influencing Surface Temperature
 
-However, surface temperature can also be influenced by:
+However, **surface temperature** can also be influenced by:
 
 - Wind
 - Surface roughness
@@ -713,7 +736,7 @@ However, surface temperature can also be influenced by:
 
 ### Interpreting Surface Temperature
 
-Therefore, temperature should be interpreted together with meteorological and vegetation data.
+*Therefore, temperature should be interpreted together with meteorological and vegetation data.*
 
 ## Single-Source Energy-Balance Models: overview
 
@@ -721,12 +744,12 @@ $$
 LE = R_n - G - H
 $$ 
 $$
-H = \rho C_p \frac{T_{aero}-T_a}{r_a}
+H = \rho C_p \frac{T_{O}-T_a}{r_a}
 $$
 
 - $\rho$ air density
 - $C_p$ specific heat
-- $T_{aero}$ aerodynamic surface temperature $T_{aero} \approx T_s$
+- $T_{0}$ aerodynamic surface temperature $T_{0} \approx T_s$
 - $r_a$ aerodynamic resistance modeled based on crop height, $u$ wind, roughness parameters
 
 ## Single-Source Energy-Balance Models: General procedure

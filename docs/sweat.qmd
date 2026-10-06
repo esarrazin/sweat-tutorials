@@ -9,7 +9,7 @@ license: "CC BY-NC-SA 4.0"
 
 ## Overview
 
-SWEAT contains several algorithms used in TRISHNA mission to compute evapotranspiration:
+SWEAT contains L2B/L3 algorithms used in TRISHNA mission to compute evapotranspiration:
 
 - **EVASPA** EVApotranspiration from SPAce
 - **STIC** Surface Temperature Initiated Closure
@@ -146,7 +146,7 @@ Open <http://localhost:8000/>
 
 ## STIC Algorithm steps
 
-![](images/stic_steps_2.png)
+![](images/stic_steps.png)
 
 ## Usage: Command line
 
@@ -215,7 +215,7 @@ def run_stic(
 
 ## Usage: Notebook
 
-- Main notebook [**../notebooks/run_stic.ipynb**](https://github.com/CNES/sweat/blob/main/notebooks/run_stic.ipynb)
+- Main notebook [**run_stic.ipynb**](https://github.com/CNES/sweat/blob/main/notebooks/run_stic.ipynb)
 
 ## Configuration
 
@@ -307,7 +307,7 @@ def run_evaspa(
 
 ## Usage: Notebook
 
-- Main notebook [**../notebooks/run_evaspa.ipynb**](https://github.com/CNES/sweat/blob/main/../notebooks/run_stic.ipynb)
+- Main notebook [**run_evaspa.ipynb**](https://github.com/CNES/sweat/blob/main/../notebooks/run_stic.ipynb)
 
 ## Usage: Notebook
 

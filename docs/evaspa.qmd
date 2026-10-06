@@ -45,9 +45,9 @@ See [@gallego-elvira_evaspa_2013]
 :::
 :::
 
-## Algorithm
+## Algorithm: ### Evaporative fraction
 
-### Evaporative fraction
+### Definition
 
 - Quantity of energy which is allocated to evapotranspiration in regards to the available energy.
 - Defined as
@@ -56,35 +56,38 @@ $$
 EF = \frac{LE}{LE+H} = \frac{LE}{R_n-G}
 $$
 
-## Algorithm
-
-### Evaporative fraction
+## Algorithm: Evaporative fraction estimation
 
 :::: columns
-::: {.column width="50%"}
+::: {.column width="60%"}
 
 ![](images/ef_schema_2.png)
 
 :::
 
-::: {.column width="50%"}
+::: {.column width="40%"}
 $$
 EF = \frac{T_{dry}-T}{T_{dry}-T{wet}}
 $$
 
 \vspace{1cm}
 
-- For fully wet conditions, i.e. Twet where LE = Rn-G and H= 0
-- For fully dry conditions, i.e. Tdry where H = Rn - G and LE=0
+- For fully wet conditions, i.e. $T_{wet}$ where $LE = Rn - G$ and $H = 0$
+- For fully dry conditions, i.e. $T_{dry}$ where $H = Rn - G$ and $LE = 0$
 
 :::
 :::
 
-## Algorithm
+## Algorithm: Ensemble approach
 
-### Evapotranspiration from evaporative fraction
+1. Several methods are used to estimate dry and wet edges related to several LST vs variables
+2. Each EF is estimated for each methods
+3. EF is deduced by merging each EF 
+
+## Algorithm: Evapotranspiration from evaporative fraction
 
 $$
 ET = \frac{LE}{L} = \frac{EF(R_n-G)}{L}
 $$
 
+## References

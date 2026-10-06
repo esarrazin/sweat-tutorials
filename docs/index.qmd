@@ -1,7 +1,7 @@
 ---
 author: "Emmanuelle Sarrazin"
 title: "SWEAT tutorials"
-subtitle: "How to compute evapotranspiration?"
+subtitle: "How to estimate evapotranspiration in TRISHNA?"
 date: "2026-10-07"
 license: "CC BY-NC-SA 4.0"
 ---

@@ -1,7 +1,7 @@
 ---
 author: "Emmanuelle Sarrazin"
 title: "STIC"
-subtitle: "TODO"
+subtitle: "Surface Temperature Initiated Closure"
 date: "2026-10-07"
 bibliography: references.bib
 license: "CC BY-NC-SA 4.0"
@@ -17,9 +17,12 @@ Surface Temperature Initiated Closure (STIC) Algorithm [@mallick_surface_2014]
 - Model Type: One-source Surface Energy Balance (SEB) model
 - Innovation: Uniquely integrates Land Surface Temperature (LST) directly into the Penman-Monteith formulation
 
-## Inputs
+## Meteorological inputs
 
-The objective of minimizing the impact of exogenous meteorological information on the performance of the product, as it only depends on surface temperature and air humidity.
+The objective of minimizing the impact of exogenous meteorological information on the performance of the product, as it only depends on 
+
+* **air temperature** 
+* **dewpoint temperature** (i.e. air humidity)
 
 ## Core Approach & Key Components
 
@@ -36,8 +39,9 @@ The objective of minimizing the impact of exogenous meteorological information o
 
 - Combines LST with aerodynamic and heat balance equations
 - Determines two conductances:
-  - Aerodynamic conductance (ga) — efficiency of air transport of heat and moisture
-  - Surface conductance (gs) — vegetation canopy's ability to exchange water vapor
+
+  - Aerodynamic conductance ($g_a$) — efficiency of air transport of heat and moisture
+  - Surface conductance ($g_s$) — vegetation canopy's ability to exchange water vapor
 
 :::
 :::
