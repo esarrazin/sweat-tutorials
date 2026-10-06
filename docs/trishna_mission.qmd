@@ -163,6 +163,10 @@ license: "CC BY-NC-SA 4.0"
 
 :::
 
+## Atmospheric transmission
+
+![](images/Atmospheric_Transmission.png)
+
 ## TRISHNA global coverage land + coastal
 
 ![](images/trishna_coverage.png){.nostretch width="80%" fig-align="center"}
