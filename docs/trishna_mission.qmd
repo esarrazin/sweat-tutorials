@@ -34,7 +34,6 @@ license: "CC BY-NC-SA 4.0"
 
 :::
 
-
 :::
 
 ## TRISHNA goals
@@ -132,7 +131,7 @@ license: "CC BY-NC-SA 4.0"
 - **VNIR-SWIR 7 bands**: day-time acquisition
 - **TIR 4 bands**: day-time/night-time acquisition
 
-![](images/trishna_bands.png)
+![](images/trishna_bands_white.png){.nostretch width="70%" fig-align="center"}
 
 ## TRISHNA VNIR-SWIR spectral bands
 
@@ -165,7 +164,7 @@ license: "CC BY-NC-SA 4.0"
 
 ## Atmospheric transmission
 
-![](images/Atmospheric_Transmission.png)
+![](images/Atmospheric_Transmission.png){.nostretch width="75%" fig-align="center"}
 
 ## TRISHNA global coverage land + coastal
 
@@ -329,15 +328,15 @@ license: "CC BY-NC-SA 4.0"
 
 ## TRISHNA Milestones
 
-![](images/trishna_milestones.png)
+![](images/trishna_milestones_background.png)
 
 ## Indo-French ground segment
 
-![](images/trishna_ground_segment.png)
+![](images/trishna_ground_segment_background.png)
 
 ## TRISHNA processing chain
 
-![](images/trishna_processing_chain_white.png)
+![](images/trishna_processing_chain.png)
 
 ## TRISHNA Production and data distribution
 
@@ -381,20 +380,12 @@ $$
 
 ## Distributed products overview 
 
-- **Level 1**: top-of-atmosphere radiances and brightness temperatures
-- **Level 2**: 
-  
-  * Land and water surface reflectances, 
-  * Land and Sea Surface temperature, 
-  * Land Surface Emissivities, 
-  * Vegetation variables, 
-  * Albedo, 
-  * Daily evapotranspiration
-  * etc
+- **Level 1**: Top-Of-Atmosphere (TOA) radiances and brightness temperatures
+- **Level 2**: Bottom-Of-Atmosphere (BOA) reflectances and products  
 
 ## Level 1C products
 
-- TOA reflectances x7 VNIR/SWIR bands
+- TOA radiances x7 VNIR/SWIR bands
 - TOA radiances x4 TIR bands $\Rightarrow$ Brightness temperatures
 
 * $\Rightarrow$ *Radiometrically and geometrically calibrated*
@@ -404,7 +395,7 @@ $$
 
 ### What is a black body ?
 
-* A black body or blackbody is an idealized physical body that absorbs all incident electromagnetic radiation, regardless of frequency or angle of incidence. 
+* A **black body** is an idealized physical body that absorbs all incident electromagnetic radiation, regardless of frequency or angle of incidence. 
 
 ### What is brightness temperature?
 
@@ -412,7 +403,7 @@ It is the temperature of a black body that would have the same radiance as the r
 
 ## Spectral radiance of a black body
 
-Planck's law is defined by 
+Defined by Planck's law
 
 $$B_{\lambda}(T) = \frac{2hc^{2}}{\lambda^{5}}\frac{1}{\exp{\frac{hc}{\lambda\sigma_{B}T}}-1}$$
 
@@ -422,16 +413,17 @@ where
 - $c$ light velocity
 - $\sigma_{B}$ Boltzmann's constant
 - $T$ temperature
+- $\lambda$ wavelength
 
-## Radiance transfer in the atmosphere
+## From Level 1C to level 2 products: How to define TOA radiance?
 
-Radiative transfer equation in the atmosphere:  TRISHNA Level 1C to level 2A
+Radiative transfer equation in the atmosphere: 
 
 $$
-L_{\lambda,TOA} = L^{\uparrow}_{\lambda} +\left[ \rho_{\lambda} \times L^{\downarrow}_{\lambda} + \epsilon_{\lambda} \times B(T) \right]  \times  \tau_{\lambda}
+L_{\lambda,TOA} = L^{atm\uparrow}_{\lambda} +\left[ \rho_{\lambda} \times L^{atm\downarrow}_{\lambda} + \epsilon_{\lambda} \times B(T) \right]  \times  \tau_{\lambda}
 $$
 
-- $\rho_{lambda}$ reflectance
+- $\rho_{\lambda}$ reflectance
 - $\epsilon_{\lambda}$ land surface emissivity
 - $T$ land surface temperature
 - $L^{\downarrow}_{\lambda}$ downward atmospheric radiance
@@ -439,48 +431,7 @@ $$
 - $\tau_{\lambda}$ atmospheric transmittance
 - $B_{\lambda}$ spectral radiance of a black body (Planck's law)
 
-## Atmospheric correction 
-
-$$
-L_{\lambda}^{TOC}(\theta,\phi) = \frac{L_{\lambda}^{TOA}(\theta,\phi) - L_{\lambda}^{atm\uparrow}(\theta,\phi)}{\tau(\theta,\phi)}
-$$
-
-where
-
-- $\theta$ zenith angle and $\phi$ azimuth angle
-- $L_{\lambda}^{TOA}$ TOA radiance
-- $L_{\lambda}^{atm\uparrow}$ upwelling atmospheric radiance
-- $\tau$ atmospheric transmittance
-
-## Top-Of-Canopy Radiance
-
-The TOC radiance includes the surface emission term and the surface
-reflected downward atmospheric emission term
-
-$$
-L_{\lambda}^{TOC}(\theta,\phi) = \left[ \epsilon_{\lambda}(\theta,\phi) B_{\lambda}(T(\theta,\phi)) + \rho_{\lambda}(\theta,\phi) L^{\downarrow}_{\lambda}(\theta,\phi)\right]
-$$
-
-where
-
-- $\theta$ zenith angle and $\phi$ azimuth angle
-- $\epsilon_{\lambda}$ land surface emissivity
-- $\rho_{\lambda}$ surface reflectance
-- $T$ land surface temperature
-- $L^{atm\downarrow}_{\lambda}$ downward atmospheric radiance
-- $B_{\lambda}$ Planck's law
-
-## Remarks
-
-- The land surface temperature, emissivity and reflectance depend on $(\theta,\phi)$
-- The TOC radiance is a function of surface temperature and surface emissivity.
-- Emissivity is an intrinsic property of the surface.
-- The surface temperature varies with irradiance and local atmospheric conditions.
-- $L_{\lambda}^{\downarrow}$, $L_{\lambda}^{\uparrow}$ and
-  $\tau$ are estimated with an atmospheric radiative transfer model
-  using atmospheric profiles of pressure, air temperature and relative humidity as inputs.
-
-## Emissivity [@norman_terminology_1995]
+## Focus on emissivity 
 
 - For isothermal, homogeneous emitters, the emissivity can be defined
   as the ratio of the actual emitted radiance to the radiance emitted
@@ -503,7 +454,53 @@ where
 :::
 :::
 
+See [@norman_terminology_1995]
+
+## Atmospheric correction 
+
+Compute BOA radiance
+
+$$
+L_{\lambda}^{BOA}(\theta,\phi) = \frac{L_{\lambda}^{TOA}(\theta,\phi) - L_{\lambda}^{atm\uparrow}(\theta,\phi)}{\tau_{\lambda}(\theta,\phi)}
+$$
+
+where
+
+- $\theta$ zenith angle and $\phi$ azimuth angle
+- $L_{\lambda}^{TOA}$ TOA radiance
+- $L_{\lambda}^{atm\uparrow}$ upwelling atmospheric radiance
+- $\tau_{\lambda}$ atmospheric transmittance
+
+## Top-Of-Canopy Radiance
+
+The TOC radiance includes the surface emission term and the surface
+reflected downward atmospheric emission term
+
+$$
+L_{\lambda}^{BOA}(\theta,\phi) = \left[ \epsilon_{\lambda}(\theta,\phi) B_{\lambda}(T(\theta,\phi)) + \rho_{\lambda}(\theta,\phi) L^{atm\downarrow}_{\lambda}(\theta,\phi)\right]
+$$
+
+where
+
+- $\theta$ zenith angle and $\phi$ azimuth angle
+- $\epsilon_{\lambda}$ land surface emissivity
+- $\rho_{\lambda}$ surface reflectance
+- $T$ land surface temperature
+- $L^{atm\downarrow}_{\lambda}$ downward atmospheric radiance
+- $B_{\lambda}$ Planck's law
+
+## Remarks
+
+- $L_{\lambda}^{atm\downarrow}$, $L_{atm\lambda}^{\uparrow}$ and
+  $\tau_{\lambda}$ are estimated with an atmospheric radiative transfer model
+  using atmospheric profiles of pressure, air temperature and relative humidity as inputs.
+- The land surface temperature, emissivity and reflectance depend on $(\theta,\phi)$
+- Emissivity is an intrinsic property of the surface.
+- The surface temperature varies with irradiance and local atmospheric conditions.
+
 ## Level 2A products
+
+After atmospheric correction:
 
 - Land & Water Surface reflectances x5 VNIR/SWIR bands
 - Land Surface Temperature and Sea Surface Temperature
@@ -516,28 +513,86 @@ where
 - Surface albedo
 - Vegetation variables
 - Instantaneous radiation
-- Daily Evapotranspiration
+- Daily evapotranspiration
+
+**Computed for clear pixels**
 
 ## Level 2B: Broadband surface albedo
 
-- Instant albedo
-- Climate albedo
+- Compute blue-sky albedo which combines black-sky albedo (direct) and white-sky albedo (diffuse)
+- Provide two boradband albedo products:
+
+  - **Instant albedo**
+  - **"Climate" albedo** using from a climatology or from the history file
 
 ## Level 2B: Vegetation variables
 
-- Leaf Area Index: LAI
-- FAPAR: Fraction of photosynthetically active radiation absorbed by the canopy
-- Fraction cover
+- **LAI**: Leaf Area Index
+- **FAPAR**: Fraction of photosynthetically active radiation absorbed by the canopy
+- **Fcover**: Fraction cover in a pixel 
 
-## Level 2B: Vegetation variables algorithm
+## Level 2B: BVnet algorithm
 
-![](images/bvnet_white.png)
+![](images/bvnet.png){.nostretch width="80%" fig-align="center"}
+
+::: {.text-tiny}
+See [@weiss_gai_2024]
+:::
 
 ## Level 2B: Instantaneous radiation
 
 - Shortwave downwelling radiation
 - Diffuse fraction
 - Longwave downwelling radiation
+
+## Level 2B: Instantaneous shortwave radiation
+
+::: {.columns}
+
+::: {.column width="40%"}
+
+::: {style="text-align:center;"}
+![TRISHNA Satellite](images/rsd_schema2.png){.nostretch width="80%"}
+:::
+
+:::
+
+::: {.column width="5%"}
+:::
+
+::: {.column width="55%"}
+
+$$
+R_{S}^{\downarrow} = E_{S, direct}^{\downarrow} + E_{S, diffuse}^{\downarrow}
+$$
+$$
+R_{S}^{\downarrow} = E_{S, direct}^{\downarrow} + (1-f) \times E_{S, direct}^{\downarrow}
+$$
+$$
+R_{S}^{\downarrow} = E_{TOA}T_{\text{direct}} + E_{TOA}(T_{SS} + T_{MS})
+$$
+
+Where:
+
+- $E$ radiation
+- $T$ transmittance
+
+:::
+
+:::
+
+## Level 2B: Instantaneous longwave radiation
+
+$$
+R_{L}^{\downarrow} = \sigma_{B}\epsilon_{sky}T_{sky}
+$$
+
+Where:
+
+- $\sigma_B$ Boltzmann's constant
+- $\epsilon_{sky}$ Sky emissivity estimated from air temperature and dewpoint temperature
+- $T_{sky}$ Sky temperature estimated from air temperature and dewpoint temperature
+
 
 ## Level 2B: Daily evapotranspiration
 
@@ -553,20 +608,25 @@ where
   - Daily evapotranspiration
   - Water stress indicator
 
+See more details in the rest of the tutorial.
+
 ## Level 3 products
 
-- Continuous time series of daily evapotranspiration
+- Continuous time series of daily evapotranspiration: Each day L3 product is provided even for day without TRISHNA acquisition
+- Computed using interpolation and extrapolation using auxiliary data
+
+See more details in the rest of the tutorial.
 
 # International cooperation
 
 ## Collaboration in Europe
 
-![](images/collaboration.png)
+![](images/collaboration.png){fig-align="center"}
 
 ## Collaboration in India
 
-![](images/collaboration_inde.png)
+![](images/collaboration_inde.png){fig-align="center"}
 
 ## Earth Observation missions in synergy
 
-![](images/missions.png)
+![](images/missions.png){fig-align="center"}

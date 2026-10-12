@@ -6,5 +6,5 @@ project:
 format:
   beamer:
     slide-level: 2
-    aspectratio: 43
+    aspectratio: 169
     theme: metropolis

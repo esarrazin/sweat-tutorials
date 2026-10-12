@@ -363,6 +363,12 @@ Where
 - $H$ = sensible heat flux 
 - $LE$ = latent heat flux
   
+\vspace{1cm}
+
+$$ LE = L \times ET$$
+
+where $L$ is the specific latent heat for vaporization
+
 :::
 
 ::: {.column width="40%"}
@@ -372,10 +378,6 @@ Where
 :::
 
 :::
-
-$$ LE = L \times ET$$
-
-where $L$ is the specific latent heat for vaporization
 
 ## Net radiation
 
@@ -414,9 +416,7 @@ Where
 
 ## How to represent the soil-vegetation system?
 
-Different representations
-
-![Different configurations of resistance networks[@zhang2016]](images/seb_models.png){height="80%"}
+![Different configurations of resistance networks[@zhang2016]](images/seb_models.png){.nostretch height="80%" fig-align="center"}
 
 ## How to represent the soil-vegetation system?
 
@@ -475,17 +475,17 @@ $$
 
 ## Air conductance
 
-* Represents how easily water vapor can move through the air layer surrounding the leaf 
+* Represents **how easily water vapor can move through the air layer surrounding the leaf**
 * Depends on:
 
-  - Wind speed $\rightarrow$ stronger wind removes the moist air layer around the leaf, allowing more evaporation
-  - Roughness $\rightarrow$ Leaf shape and size change the roughness and affect how turbulent the air becomes
+  - **Wind speed** $\rightarrow$ stronger wind removes the moist air layer around the leaf, allowing more evaporation
+  - **Roughness** $\rightarrow$ Leaf shape and size change the roughness and affect how turbulent the air becomes
 
 * Is largely passive and not controlled by the plant 
 
 ## Stomatal resistance
 
-* Represents how open the stomata are to allow water vapor to escape
+* Represents **how open the stomata are to allow water vapor to escape**
 
   - When stomata are wide open, conductance is high $\Rightarrow$ water vapor escapes easily from inside the leaf
   - When stomata are closed or partially closed, conductance is low $\Rightarrow$ less water vapor can escape
@@ -530,14 +530,14 @@ where
 
 ## Ecosystem functioning with unstressed stomata
  
-![](images/unstressed.png){.nostretch width="600px" fig-align="center"}
+![](images/unstressed.png){.nostretch height="60%" fig-align="center"}
 
 * Radiation explains **75 - 80%** of ET variability
 * Stomatal control: **not significant**
 
 ## Stressed vegetation
 
-![](images/stressed.png){.nostretch width="600px" fig-align="center"}
+![](images/stressed.png){.nostretch height="60%" fig-align="center"}
 
 * **strong hysteresis**: Surface temperature vs radiation
 * **high thermal inertia**
@@ -553,7 +553,7 @@ where
 3. **Models using optical remote-sensing data**
 4. **Models using optical and thermal infrared remote-sensing data**
 
-::: {.text-small}
+::: {.text-tiny}
 
 Each method involves a trade-off between
 
@@ -798,11 +798,17 @@ $$
 T_s = \left(f_c T_{canopy}^4 + (1-f_c)T_{soil}^4\right)^{1/4}
 $$
 
+::: {when-format="beamer"}
+\footnotesize
+:::
+
 - $f_c$ vegetation fraction cover
-- $T_{canopy}$ canopy temperature
-- $T_{soil}$ soil temperature
-- $r_{soil}$ surface resistance
-- $r_{canopy}$ canopy resistance modeled based on LAI, leaf resistance
+- $T_{canopy}$ canopy temperature and $T_{soil}$ soil temperature
+- $r_{soil}$ surface resistance and $r_{canopy}$ canopy resistance modeled based on LAI, leaf resistance
+
+::: {when-format="beamer"}
+\normalsize
+:::
 
 ## Two-Source Energy-Balance Models
 
@@ -829,13 +835,21 @@ $$
 
 ::: {.text-tiny}
 
+::: {when-format="beamer"}
+\footnotesize
+:::
+
 | Method | Main data | Main output | Strengths | Limitations |
 |---|---|---|---|---|
-| Empirical models | Temperature, radiation, precipitation, or limited weather data | Potential or reference ET | Simple and inexpensive | Site-specific and less physically detailed |
+| Empirical models | Various weather data | Potential or reference ET | Simple and inexpensive | Site-specific and less physically detailed |
 | Penman–Monteith | Radiation, temperature, humidity, and wind | Reference ET | Physically based and widely accepted | Requires complete weather data |
 | Optical remote sensing | Reflectance, vegetation indices, LAI, albedo | Spatial crop coefficients or vegetation parameters | Large-area vegetation monitoring | Weak direct sensitivity to water stress |
-| TIR remote sensing | Land-surface temperature, radiation, weather data | Actual ET and surface fluxes | Detects water stress and spatial ET patterns | Cloud-sensitive and data-intensive |
+| TIR remote sensing | LST, radiation, weather data | Actual ET and surface fluxes | Detects water stress and spatial ET patterns | Cloud-sensitive and data-intensive |
 | Hybrid models | Weather, optical, TIR, and land-surface data | High-resolution actual ET | Combines complementary information | More complex and requires integration |
+
+::: {when-format="beamer"}
+\normalsize
+:::
 
 :::
 
@@ -852,6 +866,10 @@ $$
 
 * STIC require few meteorological data, only air temperature and dewpoint temperature and daily radiation
 * EVASPA require only daily radiation
+
+{{< include stic.qmd >}}
+
+{{< include evaspa.qmd >}}
 
 # How to extrapolate to daily
 

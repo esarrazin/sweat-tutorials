@@ -171,6 +171,7 @@ Options:
 
 An example of input file:
 
+\small
 ```json
 {
     "input":{
@@ -182,6 +183,7 @@ An example of input file:
     }
 }
 ```
+\normalsize
 
 ## Usage: Command line
 
@@ -258,6 +260,7 @@ Options:
 
 An example of input file:
 
+\small
 ```json
 {
     "input":{
@@ -274,6 +277,7 @@ An example of input file:
     }
 }
 ```
+\normalsize
 
 ## Usage: Command line
 

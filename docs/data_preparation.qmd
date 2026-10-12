@@ -66,9 +66,7 @@ Strategy adopted $\Rightarrow$ Full product download:
 
 # L2B Data processing
 
-## Prepare Landsat
-
-### Download 
+## Download data
 
 * Download from EarthExplorer-USGS Landsat Collection 2
 * Download from ERA5-Land for the acquisition date
@@ -108,7 +106,7 @@ Strategy adopted $\Rightarrow$ Full product download:
 
 ## Prepare landsat schema
 
-![](images/prepare_landsat_2.png)
+![](images/prepare_landsat_2.png){.nostretch width="90%" fig-align="center"}
 
 # ET-dataset
 

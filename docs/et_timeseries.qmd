@@ -15,7 +15,7 @@ date: "2026-10-07"
 
 ### Evolution of a pixel's ET time series
 
-![](images/update_window.png)
+![](images/update_window.png){.nostretch width="80%" fig-align="center"}
 
 ## Algorithm
 
@@ -29,7 +29,7 @@ date: "2026-10-07"
 
 ### Update timeseries
 
-![](images/update_ts.png)
+![](images/update_ts.png){.nostretch width="80%" fig-align="center"}
 
 ## Algorithm
 
@@ -54,7 +54,7 @@ date: "2026-10-07"
 
 ## Input source: What data is downloaded?
 
-![](images/input_source_l3.png){.nostretch width="80%" fig-align="center"}
+![](images/input_source_l3.png){.nostretch width="60%" fig-align="center"}
 
 ## Configuration
 
@@ -70,11 +70,11 @@ date: "2026-10-07"
 
 ## Prepare daily radiation timeseries
 
-![](images/prepare_daily_radiation_timeseries.png)
+![](images/prepare_daily_radiation_timeseries.png){.nostretch height="90%" fig-align="center"}
 
 ## Prepare daily ET timeseries
 
-![](images/prepare_daily_et_timeseries.png)
+![](images/prepare_daily_et_timeseries.png){.nostretch height="90%" fig-align="center"}
 
 ## Usage: Prepare timeseries script
 

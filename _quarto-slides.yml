@@ -5,7 +5,7 @@ project:
 
 format:
   revealjs:
-    theme: dracula
+    theme: solarized
     slide-number: true
     transition: fade         # fade, slide, convex, concave, zoom
     logo: images/trishna_logo.png

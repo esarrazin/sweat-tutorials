@@ -1,7 +1,5 @@
 ---
 author: "Emmanuelle Sarrazin"
-title: "STIC"
-subtitle: "Surface Temperature Initiated Closure"
 date: "2026-10-07"
 bibliography: references.bib
 license: "CC BY-NC-SA 4.0"
@@ -79,5 +77,3 @@ The objective of minimizing the impact of exogenous meteorological information o
 ## Detailed algorithm
 
 ![](images/stic_algo.png)
-
-## References
