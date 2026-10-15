@@ -136,6 +136,80 @@ Open <http://localhost:8000/>
 
 ![](images/documentation_sweat.png)
 
+
+## Software design
+
+### File tree structure
+
+\footnotesize
+```bash
+|-- AUTHORS.md
+|-- CONTRIBUTING.md
+|-- docs
+|-- hooks
+|-- LICENSE
+|-- Makefile
+|-- mkdocs.yml
+|-- notebooks
+|-- pyproject.toml
+|-- README.md
+|-- ruff.toml
+|-- src
+|-- tests
+`-- troubleshooting.md
+```
+\normalsize
+
+## Software design
+
+### Module list
+
+\footnotesize
+| Module | Description |
+|--------|-------------|
+| `api.py` | High-level API |
+| `cli` | Module for CLI management |
+| `common` | Module containing common submodules |
+| `debugging.py` | Module for debugging management |
+| `evaspa` | Module containing EVASPA submodules |
+| `logging.py` | Module for logging |
+| `misc` | Module containing auxiliary data submodules |
+| `stic` | Module containing STIC submodules |
+| `timeseries` | Module containing timeseries submodules |
+\normalsize
+
+## Core concepts
+
+### Configuration Management
+
+* Stored in *JSON* format (*YAML* format also possible)
+* Managed via `Pydantic` 
+  
+  * validate the configuration file and configuration dictionary:
+    * Verify that the required parameters are present.
+    * Verify that the parameters conform to the expected format.
+    * Verify that the parameters conform to the expected values.
+  * Handle default parameter values, so the code can be run with very few parameters specified
+
+$\Rightarrow$ **Objective** To perform an early configuration check to avoid a later error during execution.
+
+## Core concepts
+
+### Configuration Management
+
+* The complete configuration used for each SWEAT run is written to the *config.json* file located in the output directory
+* This file can then be used for a new execution of the code.
+
+## Core concepts
+
+### High-level API
+
+* Use `xarray.Dataset` for data
+* Use Python dictionaries for configuration
+
+
+# Data
+
 ## Remark on inputs
 
 - SWEAT uses the band descriptions during input reading to determine which variable each band corresponds to.
@@ -224,6 +298,121 @@ def run_stic(
 ### Input configuration
 
 - Detailed in [usage page](https://github.com/CNES/sweat/blob/main/docs/stic/usage.md) and [configuration page](https://github.com/CNES/sweat/blob/main/docs/stic/configuration.md)
+
+
+## Software design
+
+### Module list
+
+\footnotesize
+| Module | Description |
+|--------|-------------|
+| `config.py` | Module for STIC configuration management |
+| `constant.py`| Module for STIC constants | 
+| `convert.py` | Module containing functions to convert variables used to prepare data for STIC model |
+| `main.py` | Module containing the API for STIC |
+| `models` | Module containing STIC models |
+| `registry.py` | Module containing register for STIC models |
+| `runner.py` | Module containing methods for running STIC models |
+\normalsize
+
+## Software design (new version)
+
+* Change in the structure of the **models** module
+
+\footnotesize
+```bash
+src/sweat/stic/models/
+|-- flux.py
+|-- functions.py
+|-- __init__.py
+|-- v1_3
+|   |-- __init__.py
+|   |-- model.py
+|   `-- smwetness.py
+`-- v1_4
+    |-- __init__.py
+    |-- model.py
+    `-- smwetness.py
+```
+\normalsize
+
+## How to add a new model
+
+* Create a new subdirectory in *models/* 
+* This directory must contain at least the **model.py** file
+* The **model.py** file must contain the following elements
+
+\footnotesize
+```python
+VERSION: str  # Version name
+IS_DEFAULT: bool
+MAPPING_VARIABLES: dict[str,str] # Mapping of model required variables
+REQUIRED_INPUTS:list[str] # List of required input data
+def run_stic_model(...) # run STIC for a raster
+def run_batch_stic_model(...) # run SITC on a dataframe
+def run_batch_init_model(...) # run STIC init step on a dataframe
+```
+\normalsize
+
+## How to run a model
+
+* Automatic registration with **registry.py**
+* Run with **runner.py**
+  * `run_model`
+  * `run_batch_model`
+  * `run_batch_int_model`
+
+## How to run a model
+
+### run_model
+
+\footnotesize
+```python
+def run_model(
+  data: xr.Dataset, 
+  valid: npt.ArrayLike | None = None, 
+  threshold: float = 0.01, 
+  nb_steps: int = 15, 
+  version: str | None = None, 
+  precision: TYPES = "float32"
+) -> tuple[npt.NDArray, npt.NDArray, npt.NDArray]:
+```
+\normalsize
+
+## How to run a model
+
+### run_batch_model
+
+\footnotesize
+```python
+def run_batch_model(
+  data: pd.DataFrame,
+  threshold: float = 0.01,
+  nb_steps: int = 15, 
+  version: str | None = None, 
+  debug: bool = False, 
+  mapping: bool = True,
+  precision: TYPES = "float32"
+) -> npt.NDArray:
+```
+\normalsize
+
+## How to run a model
+
+### run_batch_init_model
+
+\footnotesize
+```python
+def run_batch_init_model(
+  data: pd.DataFrame, 
+  version: str | None = None, 
+  debug: bool = False, 
+  mapping: bool = True, 
+  precision: TYPES = "float32"
+) -> npt.NDArray:
+```
+\normalsize
 
 ## Exercises
 
@@ -334,6 +523,32 @@ def run_evaspa(
 ### EF models configuration
 
 - Detailed in [EF model page](https://github.com/CNES/sweat/blob/main/docs/evaspa/ef_model.md)
+
+## Core concepts
+
+### Edge class
+
+![](images/edge_class.png){.nostretch height="80%" fig-align="center"}
+
+## Core concepts
+
+### Model class
+
+![](images/efmodel_class.png){.nostretch height="80%" fig-align="center"}
+
+## Software design
+
+### Module list
+
+| Module | Description |
+|--------|-------------|
+| `config.py` | Module for EVASPA configuration management |
+| `edge.py` | Module containing edges classes |
+| `ef.py` | Module for Evaporative Fraction model management |
+| `merging.py` | Module containing functions for merging datasets |
+| `seb.py` | Module containing functions for Surface Energy Balance | 
+| `tiling.py`.py | Module for tiling management |
+| `zones.py`.py | Module to manage valid zones for EVASPA ## Software design (new version)
 
 ## Exercises
 
