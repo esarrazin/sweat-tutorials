@@ -39,6 +39,37 @@ date: "2026-10-07"
 
 ![](images/timeseries_steps.png)
 
+## Interpolation algorithm details
+
+* interpolate the ratio of ET to an interpolation support
+$$
+{ET}_{d}(t) = Ratio(t).B(t)
+$$
+
+where $B$ is the interpolation support
+
+* use daily incoming solar radiation as interpolation support $\Rightarrow$ robust choice
+  * *Solar radiation forms the major source of available energy, which explains the strong correlation with the EF and subsequently with dailyET.*
+$$
+{ET}_{d}(t) = Ratio(t).R_{SD}(t)
+$$
+
+## Interpolation algorithm formula
+
+* $Ratio(t)$ can be estimated using a simple linear interpolation between the available ratios corresponding to acquisitions $Ratio(t_k)$ and $Ratio(t_{k+1})$
+
+$$
+Ratio(t) = Ratio \left( t_{k} \right)\  + \left( Ratio\left( t_{k + 1} \right) - \ Ratio\left( t_{k} \right) \right) \frac{t - \ t_{k}}{{t_{k + 1} - t}_{k}}
+$$
+
+## Extrapolation algorithm formula
+
+* The support B can be computed as corresponding to $Ratio(t_k)$ obtained on the day with the last available observation of ET
+
+$$
+Ratio(t) \approx Ratio\left( t_{k} \right) = \frac{ET_{d}\left( t_{k} \right)}{B\left( t_{k} \right)}
+$$
+
 # L3 data preparation
 
 ## Input list
